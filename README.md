@@ -1,4 +1,4 @@
-# Workflows for Reproducible Research with `R` & `git`
+# Workflows for Reproducible Research with `R` & `Git`
 
 Materials for the 2023 [*GESIS*](https://www.gesis.org/en/home/) workshop ["Workflows for Reproducible Research with R & Git"](https://training.gesis.org/?site=pDetails&child=full&pID=0xBFA25C61BAA646DCB0EBAC523EBAF532)
 
@@ -11,7 +11,7 @@ Please link to the [workshop GitHub repository](https://github.com/jobreu/reprod
 
 # Workshop description
 
-The workshop focuses on reproducible research in the quantitative social and behavioral sciences. In the context of this workshop, reproducibility means that other researchers can fully understand and rerun your data preparation and statistical analyses. However, the workflows and tools covered in this workshop will also help in facilitating your own work as they allow you to automate and track analysis and reporting tasks. In addition to a conceptual introduction to the methods and key terms around reproducible research, this workshop focuses on procedures for maximizing the reproducibility of data analyses using `R`. After discussing essential definitions and dimensions of reproducibility, we will cover some computer literacy and project organization basics that are helpful for conducting reproducible research (e.g., folder structures, naming schemes, or command-line interfaces). After that, we will focus on version control, dependency management, and computational reproducibility. The tools we will use for that include `git` and *GitHub*, `R` packages for dependency management as well as *Binder*, a tool to package and share reproducible and interactive analysis environments.
+The workshop focuses on reproducible research in the quantitative social and behavioral sciences. In the context of this workshop, reproducibility means that other researchers can fully understand and rerun your data preparation and statistical analyses. However, the workflows and tools covered in this workshop will also help in facilitating your own work as they allow you to automate and track analysis and reporting tasks. In addition to a conceptual introduction to the methods and key terms around reproducible research, this workshop focuses on procedures for maximizing the reproducibility of data analyses using `R`. After discussing essential definitions and dimensions of reproducibility, we will cover some computer literacy and project organization basics that are helpful for conducting reproducible research (e.g., folder structures, naming schemes, or command-line interfaces). After that, we will focus on version control, dependency management, and computational reproducibility. The tools we will use for that include `Git` and *GitHub*, `R` packages for dependency management as well as *Binder*, a tool to package and share reproducible and interactive analysis environments.
 
 ## Target group
 
