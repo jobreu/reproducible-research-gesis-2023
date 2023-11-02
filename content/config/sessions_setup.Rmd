@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
 )
 
 # load course content table
-# source("./content/R/course_content.R")
+source("./content/R/course_content.R")
 
 options(warn = -1)
 

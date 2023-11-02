@@ -21,12 +21,12 @@ The workshop is targeted at participants who have (at least some) experience wit
 
 By the end of the course participants should:
 -  have gained important insights into key concepts of reproducible research and recommended best practices
--  be able to work with state-of-the art frameworks and tools, such as `R Markdown`, `Jupyter`, `Git`, and *Binder*
+-  be able to work with frameworks and tools that can be used for maximizing reproducibility, such as `Git`, `R` packages for dependency management, or *Binder* 
 -  be able to publish reproducible computational analysis pipelines with `R`
 
 ## Prerequisites
 
-Participants should have some basic knowledge of `R`. While this is not required per se, participants who have experience doing statistical analysis in `R` will benefit most from this course. To facilitate applying the methods covered in the course to their work, we recommend that participants ensure to install all necessary software on their computers before the start of the course. 
+Participants should have some basic knowledge of `R` and *RStudio* (e.g., installing and loading packages, importing different data types, basic data wrangling, and analyses). To facilitate applying the methods covered in the course to their work, we recommend that participants ensure to install all necessary software on their computers before the start of the course. 
 
 ## Timetable & content
 
@@ -50,10 +50,9 @@ Participants should have some basic knowledge of `R`. While this is not required
 | 09:00 - 09:30 | Recap Day 1 | - | - | - |
 | 09:30 - 11:00 | Dependency management | [HTML](https://jobreu.github.io/reproducible-research-gesis-2022/slides/Git_RStudio.html), [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2022/main/slides/Git_RStudio.pdf) | [HTML](https://jobreu.github.io/reproducible-research-gesis-2022/exercises/Exercise_Git_Rstudio.html) | [HTML](https://jobreu.github.io/reproducible-research-gesis-2022/solutions/Exercise_Git_Rstudio.html) |
 | 11:00 - 11:15 | *Coffee Break* | - | - | - |
-| 10:45 - 11:45 | Jupyter Notebooks & Binder | [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2022/main/slides/Binder.pdf) | [Project](https://github.com/arnim/ggplot2Demo) | - |
 | 11:15 - 12:00 | Saving computational environments | - | [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2022/main/exercises/Binder_exercise.pdf) | [Project](https://github.com/arnim/COVID-19_Binder) |
 | 12:00 - 13:00 | *Lunch Break* | - | - | - |
-| 13:00 - 14:30 | Notebooks & Binder | [HTML](https://jobreu.github.io/reproducible-research-gesis-2022/slides/Sharing_publishing.html), [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2022/main/slides/Sharing_publishing.pdf) | - | - |
+| 13:00 - 14:30 | Binder & Notebooks | [HTML](https://jobreu.github.io/reproducible-research-gesis-2022/slides/Sharing_publishing.html), [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2022/main/slides/Sharing_publishing.pdf) | - | - |
 | 14:30 - 14:45 | *Coffee Break* | - | - | - |
 | 14:45 - 16:00 |Build your own Binder | [HTML](https://jobreu.github.io/reproducible-research-gesis-2022/slides/intro-collab-github.html), [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2022/main/slides/intro-collab-github.pdf) | see slides | - |
 | 16:00 - 17:00 | Recap & Outlook | [HTML](https://jobreu.github.io/reproducible-research-gesis-2022/slides/Recap_outlook.html), [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2022/main/slides/Recap_outlook.pdf) | - | - |
