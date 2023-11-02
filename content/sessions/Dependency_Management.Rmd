@@ -1,0 +1,89 @@
+---
+title: "Workflows for Reproducible Research with R & Git"
+subtitle: "Dependency Management"
+author: "Johannes Breuer, Bernd Weiss, & Arnim Bleier"
+date: "2023-11-17"
+presenter: Johannes
+editor_options: 
+  chunk_output_type: console
+---
+layout: true
+
+```{r child = "content/config/sessions_setup.Rmd"}
+```
+
+---
+
+## Dependencies in `R`
+
+Most `R` packages depend on other `R` packages. 
+
+All `R` packages depend on `R`.
+
+--
+
+Both `R` and `R` packages have versions.
+
+Different versions of `R` packages may depend on different versions of `R` and different versions of other packages.
+
+---
+
+## Dependencies in `R`
+
+```{r, dep-graph, out.width = "70%", echo = F}
+plot_dependency_graph("C:/Users/breuerjs/AppData/Local/R/win-library/4.3/usethis")
+```
+
+---
+
+## Dependencies in `R`
+
+```{r, cran-dep, out.width = "150%", echo = F}
+woRkshoptools::include_picture("cran_usethis.png")
+```
+<small><small>Source: https://cran.r-project.org/web/packages/usethis/index.html</small></small>
+
+---
+
+## Further dependencies
+
+```{r, continuum, out.width = "30%", echo = F}
+woRkshoptools::include_picture("toppling-tower.jpg")
+```
+
+<small><small>*Note*: We could also add system libraries between `R` and the OS (which are especially relevant in the [Linux/Unix world](https://www.tutorialspoint.com/operating_system/os_linux.htm)).</small></small>
+
+---
+
+## The danger of dependencies
+
+```{r, xkcd-dep, out.width = "50%" ,echo = F}
+include_graphics("https://imgs.xkcd.com/comics/dependency.png")
+```
+<small><small>https://xkcd.com/2347/</small></small>
+
+---
+
+## What to "ship"?
+
+- `R` code (+ underlying data)
+  - this should include information about the packages used
+  
+- information about the version of `R` and the used packages
+  - ideally, plus files that help to recreate this setup
+
+--
+
+- your computational environment (focus of the next session)
+
+- overall goal: Preventing what is known as "code rot"
+
+---
+
+## Documenting packages & versions
+
+There is an easy-to-use manual solution for providing information about the packages and `R` version used in your project:
+
+```{r session-info}
+sessionInfo()
+```
