@@ -34,7 +34,7 @@ Participants should have some basic knowledge of `R` and *RStudio* (e.g., instal
 
 | Time | Topic | Slides | Exercises | Solutions |
 | ---: | :---- | :----: | :-------: | :-------: |
-| 09:30 - 10:45 | Introduction | [HTML](https://jobreu.github.io/reproducible-research-gesis-2022/slides/Introduction.html), [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2022/main/slides/Introduction.pdf) | - | - |
+| 09:30 - 10:45 | Introduction | [HTML](https://jobreu.github.io/reproducible-research-gesis-2023/slides/Introduction.html), [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2023/main/slides/Introduction.pdf) | - | - |
 | 10:45 - 11:00 | *Coffee Break* | - | - | - |
 | 11:00 - 12:00 | Computer literacy | [HTML](https://jobreu.github.io/reproducible-research-gesis-2022/slides/comp-literacy.html), [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2022/main/slides/comp-literacy.pdf) | see slides | see [create-project.sh](https://github.com/jobreu/reproducible-research-gesis-2022/blob/main/content/sh/create-project.sh) |
 | 12:00 - 13:00 | *Lunch Break* | - | - | - |
@@ -48,7 +48,7 @@ Participants should have some basic knowledge of `R` and *RStudio* (e.g., instal
 | Time | Topic | Slides | Exercises | Solutions |
 | ---: | :---- | :----: | :-------: | :-------: |
 | 09:00 - 09:30 | Recap Day 1 | - | - | - |
-| 09:30 - 11:00 | Dependency management | [HTML](https://jobreu.github.io/reproducible-research-gesis-2022/slides/Git_RStudio.html), [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2022/main/slides/Git_RStudio.pdf) | [HTML](https://jobreu.github.io/reproducible-research-gesis-2022/exercises/Exercise_Git_Rstudio.html) | [HTML](https://jobreu.github.io/reproducible-research-gesis-2022/solutions/Exercise_Git_Rstudio.html) |
+| 09:30 - 11:00 | Dependency management | [HTML](https://jobreu.github.io/reproducible-research-gesis-2023/slides/Dependency_Management.html), [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2022/main/slides/Dependency_Management.pdf) | [HTML](https://jobreu.github.io/reproducible-research-gesis-2022/exercises/Exercise_Dependency_Management.html) | [HTML](https://jobreu.github.io/reproducible-research-gesis-2022/solutions/Exercise_Dependency_Management.html) |
 | 11:00 - 11:15 | *Coffee Break* | - | - | - |
 | 11:15 - 12:00 | Saving computational environments | - | [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2022/main/exercises/Binder_exercise.pdf) | [Project](https://github.com/arnim/COVID-19_Binder) |
 | 12:00 - 13:00 | *Lunch Break* | - | - | - |
