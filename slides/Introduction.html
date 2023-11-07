@@ -1032,7 +1032,7 @@ https://github.com/jobreu/reproducible-research-gesis-2023
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style=&quot;text-align:left;color: gray !important;&quot;&gt; 15:15 - 16:30 &lt;/td&gt;
-   &lt;td style=&quot;text-align:left;font-weight: bold;&quot;&gt; Git &amp;amp; GitHub - Part 1 &lt;/td&gt;
+   &lt;td style=&quot;text-align:left;font-weight: bold;&quot;&gt; Git &amp;amp; GitHub - Part 2 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style=&quot;text-align:left;color: gray !important;&quot;&gt; 16:30 - 17:00 &lt;/td&gt;
@@ -1098,16 +1098,22 @@ https://github.com/jobreu/reproducible-research-gesis-2023
 
 We will cover several different tools that can be used for reproducible research in the quantitative social sciences. We will only be able to cover the basics of those tools, so if you want to continue to use them and use them in more advanced ways, you will probably need to &quot;dig deeper&quot; eventually and consult further resources (documentation, further tutorials, blog posts, or other publications).
 
+--
+
+Our goal is that people with no or only very limited experience with the tools we will cover in this workshop are able to follow and keep up. For those who already have quite some experience with one or more of the tools we will cover, feel free to try out some additional things or options, or have a closer look at documentation of the tools (also if the exercises are too easy for you and you are done earlier with them).
+
 ---
 
 ## Disclaimer
 
 As you probably already know, there are a lot of different tools and workflows that can be employed for increasing the reproducibility of research. We will introduce you to some of those, but there is more, and, in the end, it depends on your personal preferences and needs what tools and workflows you employ.&lt;sup&gt;1&lt;/sup&gt;
 
-In this course, we will focus on reproducible research using `R`. However, there also are solutions for reproducible research with other programming languages, such as `Python` or `Julia`, as well as statistical software packages, such as *SPSS*  and *Stata*.
+In this course, we will focus on free and open-source software (FOSS).&lt;sup&gt;2&lt;/sup&gt; We will also focus on `R`, but there are solutions for reproducible research with other programming languages, such as `Python` or `Julia`, as well as statistical software packages, such as *SPSS*  and *Stata*.
 
 .small[
 [1] As you will see, we instructors also all have different preferences in our workflows and tool use.
+
+[2] The only exception is *GitHub* which belongs to *Microsoft*. We chose *GitHub* over [*GitLab*](https://about.gitlab.com/), however, as it is generally more widely used and available to everybody, regardless of whether your institution maintains its own *GitLab* server or not.
 ]
 
 ---
@@ -1124,10 +1130,9 @@ class: center, middle
 
 ---
 
-## What is reproducibility?
+## Defining reproducibility
 
-As with (almost) everything in science, there are different definitions of reproducibility.
-We will discuss some of them in the following.
+&gt; A minimum standard on a spectrum of activities (“reproducibility spectrum”) for assessing the value or accuracy of scientific claims .highlight[based on the original methods, data, and code] [...] In some fields, this meaning is, instead, associated with the term “replicability” or ‘repeatability’ ([FORRT Glossary - Reproducibility](https://forrt.org/glossary/reproducibility/))
 
 ---
 
@@ -1144,12 +1149,6 @@ We will discuss some of them in the following.
 
 &lt;img src=&quot;data:image/png;base64,#https://dh-trier.github.io/trr/img/trr-cube.jpg&quot; width=&quot;50%&quot; style=&quot;display: block; margin: auto;&quot; /&gt;
 &lt;small&gt;&lt;small&gt;By Christof Schöch. Source: https://dh-trier.github.io/trr/#/2/1&lt;/small&gt;&lt;/small&gt;
-
----
-
-## Defining reproducibility
-
-&gt; A minimum standard on a spectrum of activities (“reproducibility spectrum”) for assessing the value or accuracy of scientific claims .highlight[based on the original methods, data, and code] [...] In some fields, this meaning is, instead, associated with the term “replicability” or ‘repeatability’ ([FORRT Glossary - Reproducibility](https://forrt.org/glossary/reproducibility/))
 
 ---
 

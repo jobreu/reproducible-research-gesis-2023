@@ -7,7 +7,7 @@ course_content_1 <-
     "12:00 - 13:00", "Lunch Break",
     "13:00 - 15:00", "Git & GitHub - Part 1",
     "15:00 - 15:15", "Coffee Break",
-    "15:15 - 16:30", "Git & GitHub - Part 1",
+    "15:15 - 16:30", "Git & GitHub - Part 2",
     "16:30 - 17:00", "Q & A"
   ) %>%
   knitr::kable() %>%
