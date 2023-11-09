@@ -1,0 +1,40 @@
+---
+title     : "Exercises: Dependency Management"
+subtitle: "Workflows for Reproducible Research with R & Git"
+---
+
+```{r child = "content/config/exercises_setup.Rmd"}
+```
+
+In this brief set of exercises, you will try some simple solutions for dependency management in `R`. For this, you should continue working with the `R` script you have created and pushed to your *GitHub* repository in the previous sessions.
+
+```{block, box.title = "Exercise 1", box.body = list(fill = "white"), box.icon = "fa-star"}
+First, add some basic reproducibility information about the version of `R` and the packages you use to your script. If you want to, you can can exclude information about your `locale`.
+```
+
+```{block, opts.label = "clues", box.icon = "fa-lightbulb"}
+You can use a simple function from base `R` to get some information about your current session. If you want to exclude information about your `locale`, you need to wrap that function into a call to the `print()` function and provide it with an additional argument.
+```
+
+```{r session, solution = TRUE, box.icon = "fa-check"}
+print(sessionInfo(), locale = FALSE)
+```
+
+```{block, box.title = "Exercise 2", box.body = list(fill = "white"), box.icon = "fa-star"}
+Now, use the `groundhog` package to add load the packages you use in your script.
+```
+
+```{block, opts.label = "clues", box.icon = "fa-lightbulb"}
+Do not forget to specify a date. You can just use today's date.
+```
+
+```{r groundhog, solution = TRUE, box.icon = "fa-check", eval=FALSE}
+library(groundhog)
+
+# adapt the package names to include the ones you use in your script
+pkgs <- c("tidyverse", "janitor", "sjPlot")
+
+groundhog.library(pkgs, date = "2023-11-71")
+```
+
+If you are done with these exercises very quickly or if they are too easy for you, feel free to change the arguments for the `groundhog.library()` function and see what happens. You can also try to use the `groundhog` package to install a package that is not available on CRAN anymore. Or read some of the detailed documentation on the [`groundhog` package website](https://groundhogr.com/).

@@ -38,7 +38,7 @@ plot_dependency_graph("C:/Users/breuerjs/AppData/Local/R/win-library/4.3/usethis
 
 ## Dependencies in `R`
 
-```{r, cran-dep, out.width = "150%", echo = F}
+```{r, cran-dep, out.width = "175%", echo = F}
 woRkshoptools::include_picture("cran_usethis.png")
 ```
 <small><small>Source: https://cran.r-project.org/web/packages/usethis/index.html</small></small>
@@ -64,26 +64,206 @@ include_graphics("https://imgs.xkcd.com/comics/dependency.png")
 
 ---
 
-## What to "ship"?
+## Digging `r ji("pick")` into your tool stack `r ji("hammer and wrench")`
+
+Your full `R` setup consists of:
+
+1. Specific versions of `R` packages<sup>1</sup>
+2. A specific version of `R`<sup>2</sup>
+3. A specific version of your operating system
+4. Specific hardware
+
+.small[
+[1] You can have different libraries with different (versions of) `R` packages.
+
+[2] You can also have different versions of `R` installed on your machine.
+]
+
+---
+
+## What to "ship" `r ji("ship")`?
 
 - `R` code (+ underlying data)
   - this should include information about the packages used
   
 - information about the version of `R` and the used packages
-  - ideally, plus files that help to recreate this setup
 
 --
 
-- your computational environment (focus of the next session)
+- your whole computational environment (focus of the next session)
 
-- overall goal: Preventing what is known as "code rot"
+- overall goal: preventing what is known as "code rot"
 
 ---
 
-## Documenting packages & versions
+## Dependency management solutions
+
+As with almost everything in the `R` ecosystem, there are multiple solutions for dependency management:
+
+- a manual approach
+- [~~`checkpoint`~~](https://github.com/RevolutionAnalytics/checkpoint)<sup>1</sup>
+- [**`groundhog`**](https://groundhogr.com/)
+- [`renv`](https://rstudio.github.io/renv/)<sup>2</sup>
+- [`rang`](https://github.com/gesistsa/rang)<sup>3</sup>
+
+.small[
+[1] Not an option anymore as it relied on the *CRAN Time Machine snapshots* from the *Microsoft R Application Network* (MRAN) which was [retired in July 2022](https://techcommunity.microsoft.com/t5/azure-sql-blog/microsoft-r-application-network-retirement/ba-p/3707161).
+
+[2] `renv` is the successor of [`packrat`](https://github.com/rstudio/packrat) (which is not maintained anymore).
+
+[3] Developed by members of the team [Transparent Social Analytics](https://www.gesis.org/en/institute/staff/orga/tiles/5/74?cHash=8fbd330b798c8dd7cb84097ddfd82054) at GESIS.
+]
+
+---
+
+## Manual approach to dependency management
 
 There is an easy-to-use manual solution for providing information about the packages and `R` version used in your project:
 
+.small[
 ```{r session-info}
 sessionInfo()
 ```
+]
+
+---
+
+## `groundhog`  
+
+[`groundhog`](https://groundhogr.com/) is a lightweight package that allows you to increase the reproducibility of your `R` scripts. It does so by installing and loading "packages & their dependencies as available on chosen date on CRAN".
+
+---
+
+## Using `groundhog`
+
+All you need to do to use `groundhog` is specifying the packages you want to use in your script and a date.
+
+```{r groundhog-ex, eval = FALSE}
+install.packages("groundhog")
+library(groundhog)
+
+pkgs <- c("tidyverse", "janitor", "sjPlot")
+
+groundhog.library(pkgs, date = "2023-11-71")
+```
+
+---
+
+## How `groundhog` works
+
+From the [package website](https://groundhogr.com/back-end/): "groundhog relies on a database that contains virtually all package versions ever uploaded to CRAN, the date when they were published, and all dependencies."
+
+`groundhog` also used to rely on MRAN. Since that has been retired, however, it now uses its own package repository: [GRAN: Groundhog R Archive Neighbor](https://groundhogr.com/gran/). 
+
+---
+
+## How `groundhog` works
+
+`groundhog` uses its own package library to install the packages you specified. From the documentation of the `restore.library()` function: "When groundhog installs a package, it installs it into groundhog's library."
+
+```{r groundhog-lib}
+library(groundhog)
+get.groundhog.folder()
+```
+
+"Groundhog then immediately moves the installed package(s) (and their dependencies) to the default personal library."
+
+```{r default-lib}
+.libPaths()[1]
+```
+
+.small[
+*Note*: You can find a lot more technical information on the [`groundhog` website](https://groundhogr.com/) and within the help files for the `groundhog` functions.
+]
+
+---
+
+## Reversing changes made by `groundhog`
+
+You can reverse the changes made by `groundhog` to your default personal `R` package library:
+
+```{r restore-lib, eval = FALSE}
+restore.library()
+```
+---
+
+## Pros and cons of `groundhog`
+
+*Pros:*
+- can be easily used to make existing `R` scripts more reproducible
+- does not require a "project-based workflow"<sup>1</sup>
+- does not require any specific knowledge on the reproducer's side
+
+*Cons:*
+- limited to packages from CRAN
+- works with package snapshots from specific dates, not with specific package versions
+  - in reality, our installed packages are very often not up-to-date
+- installs specific package versions, but not specific versions of `R`
+
+.small[
+[1] While you as someone who highly values reproducibility, of course, do use a project-based workflow, the people who want to reproduce your analysis might not `r ji("winking face")`
+]
+
+---
+
+## Choosing a date
+
+The recommendation by the `groundhog` package authors for choosing a date is that "a good default is the first day of the month when starting your project". Once you have added `groundhog.library()` to your script, re-run it to make sure it produces the expected results.
+
+You can also update all of the packages you use and then specify the current date as the date for `groundhog.library()`.
+
+---
+
+## `groundhog` and `R` versions
+
+The `groundhog` database also includes information on base `R` releases. As `groundhog` does not install specific versions of `R`, you should still specify the version of `R` you used in your script.
+
+```{r r-ver}
+R.version.string
+```
+
+You can find the release dates for all versions of R via the [CRAN archive page](https://cran.r-project.org/src/base/).
+
+---
+
+## Sidenote: Updating packages
+
+With the following code, you can detach and update all of the packages you have currently loaded in your `R` session (excluding core `R` packages):
+
+```{r update-loaded, eval = FALSE}
+loaded_pkgs <- search()
+loaded_pkgs <- loaded_pkgs[grep("^package:", loaded_pkgs)]
+
+exclude_pkgs <- c("package:base", "package:stats", "package:graphics", "package:grDevices",
+                  "package:utils", "package:datasets", "package:methods", "package:utils")
+loaded_pkgs <- loaded_pkgs[!loaded_pkgs %in% exclude_pkgs]
+
+for (pkg in loaded_pkgs) {
+  detach(pkg, character.only = TRUE, unload = TRUE)
+}
+
+update_pkgs <- gsub("^package:", "", loaded_pkgs)
+
+install.packages(update_pkgs)
+
+```
+
+---
+
+class: center, middle
+
+# [Exercise](https://jobreu.github.io/reproducible-research-gesis-2023/exercises/Exercise_Dependency_Management.html) time `r ji("weight_lifting_woman")``r ji("muscle")``r ji("running_man")``r ji("biking_man")`
+
+## [Solutions](https://jobreu.github.io/reproducible-research-gesis-2023/solutions/Exercise_Dependency_Management.html)
+
+---
+
+class: center, middle
+
+# More comprehensive dependency management options in `R`
+
+---
+
+## `groundhog` vs. `renv`
+
+See: https://groundhogr.com/renv/
