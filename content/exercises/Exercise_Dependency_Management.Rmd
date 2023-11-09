@@ -16,7 +16,7 @@ First, add some basic reproducibility information about the version of `R` and t
 You can use a simple function from base `R` to get some information about your current session. If you want to exclude information about your `locale`, you need to wrap that function into a call to the `print()` function and provide it with an additional argument.
 ```
 
-```{r session, solution = TRUE, box.icon = "fa-check"}
+```{r session, solution = TRUE, eval = F, box.title = "Solution 1", solution = TRUE, box.icon = "fa-check"}
 print(sessionInfo(), locale = FALSE)
 ```
 
@@ -28,7 +28,7 @@ Now, use the `groundhog` package to add load the packages you use in your script
 Do not forget to specify a date. You can just use today's date.
 ```
 
-```{r groundhog, solution = TRUE, box.icon = "fa-check", eval=FALSE}
+```{r groundhog, solution = TRUE, eval = F, box.title = "Solution 2", solution = TRUE, box.icon = "fa-check"}
 library(groundhog)
 
 # adapt the package names to include the ones you use in your script
