@@ -204,7 +204,7 @@ In this course, we will focus on free and open-source software (FOSS).<sup>2</su
 .small[
 [1] As you will see, we instructors also all have different preferences in our workflows and tool use.
 
-[2] The only exception is *GitHub* which belongs to *Microsoft*. We chose *GitHub* over [*GitLab*](https://about.gitlab.com/), however, as it is generally more widely used and available to everybody, regardless of whether your institution maintains its own *GitLab* server or not.
+[2] The only exceptions are *Docker* and *GitHub* which belongs to *Microsoft*. We chose *GitHub* over [*GitLab*](https://about.gitlab.com/), however, as it is generally more widely used and available to everybody, regardless of whether your institution maintains its own *GitLab* server or not.
 ]
 
 ---
