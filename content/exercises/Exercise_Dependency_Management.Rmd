@@ -9,15 +9,19 @@ subtitle: "Workflows for Reproducible Research with R & Git"
 In this brief set of exercises, you will try some simple solutions for dependency management in `R`. For this, you should continue working with the `R` script you have created and pushed to your *GitHub* repository in the previous sessions.
 
 ```{block, box.title = "Exercise 1", box.body = list(fill = "white"), box.icon = "fa-star"}
-First, add some basic reproducibility information about the version of `R` and the packages you use to your script. If you want to, you can can exclude information about your `locale`.
+First, add get some information about the version of `R` you are using as well as the names and versions of the `R` packages you have loaded in your current `R` session. Add a comment containing the version of `R` you are using to the `R` script you have created and edited in the previous sessions.
 ```
 
 ```{block, opts.label = "clues", box.icon = "fa-lightbulb"}
-You can use a simple function from base `R` to get some information about your current session. If you want to exclude information about your `locale`, you need to wrap that function into a call to the `print()` function and provide it with an additional argument.
+You can, of course, get the information about your `R` version and the packages via the GUI of *RStudio* (e.g., in the Console and the *Packages* tab). However, you should should use base `R` functions to get this information.
 ```
 
-```{r session, solution = TRUE, eval = F, box.title = "Solution 1", solution = TRUE, box.icon = "fa-check"}
-print(sessionInfo(), locale = FALSE)
+```{r session, solution = TRUE, box.title = "Solution 1", solution = TRUE, box.icon = "fa-check"}
+# Only information about your R version
+R.version.string
+
+# Detailed information about your current R session
+sessionInfo()
 ```
 
 ```{block, box.title = "Exercise 2", box.body = list(fill = "white"), box.icon = "fa-star"}

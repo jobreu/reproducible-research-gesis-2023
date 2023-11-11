@@ -38,6 +38,7 @@ As we said in the introduction, we cannot cover all tools and topics related to 
 - Data sharing
 - Collaboration with `Git` & *GitHub*
 - Alternatives to *Docker*
+- Alternatives to *Binder*
 - Workflow & project templates
 
 ---
@@ -105,6 +106,16 @@ For some guidance on how `Git` & *GitHub* can be used for collaboration, you can
 - using the package manager [*Nix*](https://nixos.org/) with the `R` package [`rix`](https://b-rodrigues.github.io/rix/articles/reproducible-analytical-pipelines-with-nix.html)
   - Bruno Rodrigues wrote a series of [blog posts about "Reproducible Data Science with Nix"](https://www.brodrigues.co/blog/2023-10-20-nix_for_r_part7/)
   - *note*: only works for Linux and macOS; for Windows you need to use [WSL](https://learn.microsoft.com/en-us/windows/wsl/about)
+
+---
+
+## TWDNC: Alternatives to *Binder*
+
+*Note*: All of the following alternatives are commercial (but offer limited free use).
+
+- [*Code Ocean*](https://codeocean.com/)
+- [*Observable*](https://observablehq.com/)
+- [*Posit Cloud*](https://posit.co/products/cloud/cloud/) (formerly *RStudio Cloud*)
 
 ---
 

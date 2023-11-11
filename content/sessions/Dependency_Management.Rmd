@@ -45,6 +45,18 @@ woRkshoptools::include_picture("cran_usethis.png")
 
 ---
 
+## Dependencies
+
+["It's ~~turtles~~ software all the way down"](https://en.wikipedia.org/wiki/Turtles_all_the_way_down)
+
+`r ji("turtle")`
+
+--
+
+... or is it???
+
+---
+
 ## Further dependencies
 
 ```{r, continuum, out.width = "30%", echo = F}
@@ -92,7 +104,7 @@ Your full `R` setup consists of:
 
 - your whole computational environment (focus of the next session)
 
-- overall goal: preventing what is known as "code rot"
+- overall goal: preventing what is known as "code rot" & "works-on-my-machine errors" (WOMME)
 
 ---
 
