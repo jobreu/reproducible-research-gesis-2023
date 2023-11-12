@@ -30,7 +30,7 @@ Different versions of `R` packages may depend on different versions of `R` and d
 
 ## Dependencies in `R`
 
-```{r, dep-graph, out.width = "70%", echo = F}
+```{r dep-graph, out.width = "70%", echo = F}
 plot_dependency_graph("C:/Users/breuerjs/AppData/Local/R/win-library/4.3/usethis")
 ```
 
@@ -38,14 +38,14 @@ plot_dependency_graph("C:/Users/breuerjs/AppData/Local/R/win-library/4.3/usethis
 
 ## Dependencies in `R`
 
-```{r, cran-dep, out.width = "175%", echo = F}
+```{r cran-dep, out.width = "175%", echo = F}
 woRkshoptools::include_picture("cran_usethis.png")
 ```
 <small><small>Source: https://cran.r-project.org/web/packages/usethis/index.html</small></small>
 
 ---
 
-## Dependencies
+class: center, middle
 
 ["It's ~~turtles~~ software all the way down"](https://en.wikipedia.org/wiki/Turtles_all_the_way_down)
 
@@ -54,25 +54,6 @@ woRkshoptools::include_picture("cran_usethis.png")
 --
 
 ... or is it???
-
----
-
-## Further dependencies
-
-```{r, continuum, out.width = "30%", echo = F}
-woRkshoptools::include_picture("toppling-tower.jpg")
-```
-
-<small><small>*Note*: We could also add system libraries between `R` and the OS (which are especially relevant in the [Linux/Unix world](https://www.tutorialspoint.com/operating_system/os_linux.htm)).</small></small>
-
----
-
-## The danger of dependencies
-
-```{r, xkcd-dep, out.width = "50%" ,echo = F}
-include_graphics("https://imgs.xkcd.com/comics/dependency.png")
-```
-<small><small>https://xkcd.com/2347/</small></small>
 
 ---
 
@@ -90,6 +71,25 @@ Your full `R` setup consists of:
 
 [2] You can also have different versions of `R` installed on your machine.
 ]
+
+---
+
+## Further dependencies
+
+```{r stack, continuum, out.width = "30%", echo = F}
+woRkshoptools::include_picture("toppling-tower.jpg")
+```
+
+<small><small>*Note*: We could also add system libraries between `R` and the OS (which are especially relevant in the [Linux/Unix world](https://www.tutorialspoint.com/operating_system/os_linux.htm)).</small></small>
+
+---
+
+## The danger of dependencies
+
+```{r xkcd-dep, out.width = "50%" ,echo = F}
+include_graphics("https://imgs.xkcd.com/comics/dependency.png")
+```
+<small><small>https://xkcd.com/2347/</small></small>
 
 ---
 
@@ -238,7 +238,48 @@ You can find the release dates for all versions of R via the [CRAN archive page]
 
 ---
 
-## Sidenote: Updating packages
+## Excursus: Updating `R`
+
+As you probably know, you can download the most recent version of `R` from the [CRAN website](https://cran.r-project.org/). You can download older versions of `R` via the CRAN archive packages for [*Windows*](https://cran.r-project.org/bin/windows/base/old/) and [*Mac OS X*](https://cran-archive.r-project.org/bin/macosx/).<sup>1</sup>
+
+.small[
+[1] How you install and update `R` on Linux depends on your [distribution](https://cran.r-project.org/bin/linux/).
+]
+
+---
+
+## Excursus: Updating `R`
+
+On Windows, you can also use the [`installr` package](https://talgalili.github.io/installr/) to update `R`.<sup>1</sup>
+
+```{r installr, eval = FALSE}
+install.packages("installr")
+library(installr)
+
+updateR()
+```
+
+.small[
+[1] The `installr` package also offers some interesting other functionalities, such as installing `Git` via the `install.git()` function.
+]
+
+---
+
+## Excursus: Updating packages
+
+The easiest way of updating packages is simply using `install.packages()`. To update all packages or a specific set of packages, you can use the `update.packages()` function.
+
+```{r update-pkgs, eval = FALSE}
+# update all installed packages
+update.packages()
+
+# update specific packages
+update.packages(oldPkgs = c("tidyverse", "janitor", "sjPlot"))
+
+```
+---
+
+## Excursus: Updating packages
 
 With the following code, you can detach and update all of the packages you have currently loaded in your `R` session (excluding core `R` packages):
 
@@ -257,6 +298,19 @@ for (pkg in loaded_pkgs) {
 update_pkgs <- gsub("^package:", "", loaded_pkgs)
 
 install.packages(update_pkgs)
+
+```
+
+---
+
+## Excursus: Updating packages
+
+If you want to install a specific version of a package (not the most recent one), the easiest option is to use a function from the `remotes` package.
+
+```{r pkg-ver, eval = FALSE}
+library(remotes)
+
+install_version("tidyverse", version = "1.3.0")
 
 ```
 
