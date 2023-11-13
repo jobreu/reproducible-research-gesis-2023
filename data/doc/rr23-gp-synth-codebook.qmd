@@ -22,6 +22,12 @@ All official documentation can be found here: [https://www.gesis.org/en/gesis-pa
   - 1:	Male, 2:	Female
 - yob: Year of birth
 - hle: Highest level of education
+  - 1:	Student, 2:	Left school without certif., 3:	Graduation after a maximum 
+  of 7 years of school attendance (abroad), 4:	Secondary general school 
+  leaving certif. (e.g., Hauptschule), 5:	Intermed. school leaving certif. 
+  (e.g., Realschule, Mittl. Reife), 6:	Entrance qualif. univ. of appl. 
+  sciences (e.g., Fachobersch.), 7:	General/subject-spec. univ. entrance 
+  qualif. (e.g., Abitur, EOS), 8:	Other school leaving certif.
 - pinc: Personal net income
   - 1:	Unter 300 €, 2:	300 up to 500 €, 3:	500 up to 700 €, 4:	700 up to 900 €,
   5:	900 up to 1100 €, 6:	1100 up to 1300 €, 7:	1300 up to 1500 €, 8:	1500 up 
