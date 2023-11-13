@@ -45,7 +45,7 @@ As we said in the introduction, we cannot cover all tools and topics related to 
 
 ## TWDNC: Reproducible documents
 
-Formats for [literate programming](https://en.wikipedia.org/wiki/Literate_programming) that combine text, code, and output, such as:
+There are different formats for [literate programming](https://en.wikipedia.org/wiki/Literate_programming) that combine text, code, and output, such as:
 
 - [`R Markdown`](https://rmarkdown.rstudio.com/) (`.Rmd`)
   - Although not as widely used, there also is the format of [`R` Notebooks](https://bookdown.org/yihui/rmarkdown/notebook.html).
@@ -73,6 +73,17 @@ Some helpful resources for getting started or digging deeper `r ji("pick")`:
 
 ## TWDNC: Data sharing
 
+Typically, there are different research products that you can share:
+
+- a publication
+- code used for data processing and analysis (= focus of this workshop)
+- research data
+- other materials (e.g., stimuli, questionnaires, etc.)
+
+---
+
+## TWDNC: Data sharing
+
 Studies have repeatedly shown that "sharing upon request" is not a sustainable solution for data sharing. And we have discussed why *GitHub* is not a good place for sharing research data. However, there are other more suitable options for sharing research data. The best one is the use of dedicated repositories for research data.
 
 The paper by [Klein et al. (2018)](https://doi.org/10.1525/collabra.158) provides an overview of public repositories that hold psychological data.<sup>1</sup>
@@ -86,8 +97,8 @@ A good tool for finding suitable repositories is the [*Registry of Research Data
 
 Some good options for sharing research data (as everything, each with their own pros and cons):
 
-- General purpose (data) repositories, such as the [*Open Science Framework*](https://osf.io/)(OSF), [*Zenodo*](https://zenodo.org/), or [*Harvard Dataverse*](https://dataverse.harvard.edu/)
-- Curated diccipline-specific archives, such as the [*GESIS Data Archive*](https://www.gesis.org/en/data-services/home), [*PsychArchives*](https://www.psycharchives.org/) by *ZPID*, or [*ICPSR*](https://www.icpsr.umich.edu/web/pages/)
+- General purpose (data) repositories, such as the [*Open Science Framework*](https://osf.io/) (OSF), [*Zenodo*](https://zenodo.org/), or [*Harvard Dataverse*](https://dataverse.harvard.edu/)
+- Curated discipline-specific archives, such as the [*GESIS Data Archive*](https://www.gesis.org/en/data-services/home), [*PsychArchives*](https://www.psycharchives.org/) by *ZPID*, or [*ICPSR*](https://www.icpsr.umich.edu/web/pages/)
 - Archives for specific types of data, such as [*Qualiservice*](https://www.qualiservice.org/en/) or [*The Qualitative Data Repository*](https://qdr.syr.edu/)
 
 ---
@@ -111,6 +122,7 @@ It is also easily possible to contribute to the work of others or have others co
 ## TWDNC: Alternatives to *Docker*
 
 - [*podman*](https://podman.io/) as an open-source alternative to *Docker*
+
 - using the package manager [*Nix*](https://nixos.org/) with the `R` package [`rix`](https://b-rodrigues.github.io/rix/articles/reproducible-analytical-pipelines-with-nix.html)
   - Bruno Rodrigues wrote a series of [blog posts about "Reproducible Data Science with Nix"](https://www.brodrigues.co/blog/2023-10-20-nix_for_r_part7/)
   - *note*: only works for Linux and macOS; for Windows you need to use [WSL](https://learn.microsoft.com/en-us/windows/wsl/about)
@@ -151,8 +163,12 @@ We have already seen and tested the file `create-project.sh` (which is small she
 ## Other resources on reproducible research with `R`
 
 - [Building reproducible analytical pipelines with R](https://raps-with-r.dev/) by Bruno Rodrigues
+
 - [Chapter on "Computational Reproducibility"](https://lakens.github.io/statistical_inferences/14-computationalreproducibility.html) in the book/course "Improving Your Statistical Inferences" by Daniel Lakens
+
 - [BERD Course Booklet: Make Your Research Reproducible](https://berd-nfdi.github.io/BERD-reproducible-research-course/) by Heidi Seibold
+
+- [Guide for Reproducible Research by *The Turing Way*](https://the-turing-way.netlify.app/reproducible-research/reproducible-research.html)
 
 ---
 

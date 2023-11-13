@@ -1,0 +1,62 @@
+---
+title: "Workflows for Reproducible Research with R & Git"
+subtitle: "Recap Day 1"
+author: "Johannes Breuer, Bernd Weiss, & Arnim Bleier"
+date: "2023-11-17"
+presenter: Johannes
+editor_options: 
+  chunk_output_type: console
+---
+layout: true
+
+```{r child = "content/config/sessions_setup.Rmd"}
+```
+
+---
+
+## What we covered on Day 1
+
+```{r schedule-1, echo = F}
+course_content_1
+```
+
+---
+
+## What we covered on Day 1
+
+- What is reproducibility? Why does it matter?
+- Some computer literacy basics: operating systems, file systems, paths, command line...
+- What are `Git` and *GitHub*?
+  - Setup
+  - Basic usage
+- How to use `Git` & *GitHub* with(in) *RStudio*?
+- What else can we do with `Git` & *GitHub* besides creating repositories, adding, committing, pushing, and pulling files?
+
+---
+
+class: center, middle
+
+# Any remaining questions or issues from Day 1?
+
+---
+
+## What we will cover today
+
+- Managing dependencies (within `R` and beyond)
+- Using *Binder* to share your analyses and results and offer "one-click reproducibility"
+- Saving computational environments
+- Other topics and tools for reproducible research that we have not covered in this course
+
+---
+
+## What we will cover today
+
+```{r schedule-2, echo = F}
+course_content_2
+```
+
+---
+
+class: center, middle
+
+# Let's get to it! `r ji("rocket")`

@@ -264,6 +264,26 @@ woRkshoptools::include_picture("repro_spectrum.jpeg")
 
 ---
 
+## Why reproducibility matters?
+
+Reproducibility ensures that research is .highlight[transparent, verifiable, and trustworthy].
+
+Studies have repeatedly shown suboptimal reproducibility of research in the social sciences (see, e.g., [Artner et al., 2021](https://doi.org/10.1037/met0000365), [Hardwicke et al., 2020](https://doi.org/10.1098/rsos.190806), [Krähmer et al., 2023](https://doi.org/10.1371/journal.pone.0289380), [Trisovic et al., 2022](https://doi.org/10.1038/s41597-022-01143-6)).
+
+---
+
+## Motivations for reproducibility
+
+- Increasing the robustness and trustworthiness of your own research
+
+- Facilitating collaboration (through the use of common tools and standards)
+
+- Being kind to future you:
+  - Editing and reusing your own code (e.g., for a paper revision or a follow-up study)
+  - Easily being able to pick up a project after a break or finding and understanding things again after a longer time
+
+---
+
 ## Tools & workflows `r ji("hammer and wrench")` `r ji("clipboard")`
 
 In our case, **tools** are programming languages, programs, and other pieces of software that we can use to make our research (more easily) reproducible.
@@ -274,7 +294,7 @@ In our case, **tools** are programming languages, programs, and other pieces of 
 
 ## Tools & workflows `r ji("hammer and wrench")` `r ji("clipboard")`
 
-Choosing tools and establishing worklflows are somewhat idiosyncratic processes that depend on...
+Choosing tools and establishing workflows are somewhat idiosyncratic processes that depend on...
 
   - the requirements of your project (methods, data types...)
   
