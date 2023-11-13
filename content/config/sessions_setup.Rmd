@@ -14,10 +14,18 @@ source("./content/R/course_content.R")
 
 options(warn = -1)
 
-xaringanExtra::use_xaringan_extra(c("tile_view", "clipboard"))
+xaringanExtra::use_xaringan_extra(c("tile_view"))
 xaringanExtra::use_extra_styles(
   hover_code_line = TRUE,         #<<
   mute_unhighlighted_code = FALSE  #<<
+)
+
+htmltools::tagList(
+  xaringanExtra::use_clipboard(
+    button_text = "<i class=\"fa fa-clipboard\" style=\"font-size: 10px;\"></i>",
+    success_text = "<i class=\"fa fa-check\" style=\"color: #90BE6D; font-size: 10px;\"></i>",
+  ),
+  rmarkdown::html_dependency_font_awesome()
 )
 ```
 

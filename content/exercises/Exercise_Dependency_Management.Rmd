@@ -25,7 +25,7 @@ sessionInfo()
 ```
 
 ```{block, box.title = "Exercise 2", box.body = list(fill = "white"), box.icon = "fa-star"}
-Now, use the `groundhog` package to add load the packages you use in your script.
+Now, use the `groundhog` package to load the packages you use in your script.
 ```
 
 ```{block, opts.label = "clues", box.icon = "fa-lightbulb"}
@@ -36,9 +36,9 @@ Do not forget to specify a date. You can just use today's date.
 library(groundhog)
 
 # adapt the package names to include the ones you use in your script
-pkgs <- c("tidyverse", "janitor", "sjPlot")
+pkgs <- c("dplyr", "ggplot2", "scales", "correlation", "sjPlot")
 
 groundhog.library(pkgs, date = "2023-11-71")
 ```
 
-If you are done with these exercises very quickly or if they are too easy for you, feel free to change the arguments for the `groundhog.library()` function and see what happens. You can also try to use the `groundhog` package to install a package that is not available on CRAN anymore. Or read some of the detailed documentation on the [`groundhog` package website](https://groundhogr.com/).
+If you are done with these exercises very quickly or if they are too easy for you, feel free to change some of the arguments for the `groundhog.library()` function and see what happens. You can also try to use the `groundhog` package to install a package that is not available on CRAN anymore. Or read some of the detailed documentation on the [`groundhog` package website](https://groundhogr.com/).

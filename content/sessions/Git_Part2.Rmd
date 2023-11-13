@@ -113,6 +113,7 @@ Once you have created a PAT, the simplest way to store it for use with `R` and *
 library(gitcreds)
 
 gitcreds_set()
+
 ```
 
 *Note*: In the background, this function uses the [*Git* credentials helper](https://git-scm.com/doc/credential-helpers). Of course, you can also (or additionally) store your PAT in another (safe) place, such as your password manager.
@@ -121,7 +122,8 @@ To check if setting the PAT worked, you can run the following command:
 
 ```{r check-pat, eval = FALSE}
 gitcreds_get(use_cache = FALSE)$password
-````
+
+```
 
 ---
 
@@ -419,9 +421,19 @@ You can also use the full range of arguments to customize your `Git` commands. F
 
 In the exercises for this session, you should populate your *GitHub* repository with some `R` content. You can, of course, use or write your own script(s) for this. However, we have also created a `demo_script.R` in the `exercises` folder within the workshop materials that you can use and build upon.
 
-We have also provided you some toy data that you can use. These are synthetic data based data from the most recently published wave (wave #48 or wave "jc") from the [GESIS Panel](https://www.gesis.org/en/gesis-panel/gesis-panel-home) created using the [synthpop package](https://www.synthpop.org.uk/).
+*Note*: The demo script makes use of the following packages: [`dplyr`](https://dplyr.tidyverse.org/), [`ggplot2`](https://ggplot2.tidyverse.org/), [`scales`](https://scales.r-lib.org/), [`correlation`](https://easystats.github.io/correlation/), and [`sjPlot`](https://strengejacke.github.io/sjPlot/). In case you want to run the script, you need to install these packages first.
 
-You can find the data and a mini-codebook in the `data` folder within the workshop materials.
+```{r install-script, eval = FALSE}
+install.packages(c("dplyr", "ggplot2", "scales", "correlation", "sjPlot"))
+```
+
+---
+
+## Notes on the exercises in this session
+
+The `demo_script.R` makes use of some toy data that we included in the course materials (in the `data` folder). These are synthetic data based on data from waves "ja" and "jc" from the [GESIS Panel](https://www.gesis.org/en/gesis-panel/gesis-panel-home) created using the [synthpop package](https://www.synthpop.org.uk/).
+
+The `data` folder also contains a [mini-codebook](https://jobreu.github.io/reproducible-research-gesis-2023/data/doc/rr23-gp-synth-codebook.html) (in the subfolder `doc`) as well as the files used for creating the synthetic data (in the spirit of reproducibility `r ji("winking face")`).
 
 **NB**: As mentioned in this session, you should NEVER publish real survey data on *GitHub*.
 

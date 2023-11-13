@@ -13,12 +13,11 @@ In order to do the following exercises, you should have gone through the steps d
 - make sure that you can use `Git` via *RStudio*
 - have created and stored a PAT for authentication via `HTTPS` for *GitHub*
 
-Some important notes for these exercises:
+**Some important notes for these exercises:**
 
-For adding some `R` content to your repository, you can either use or create your own scripts or use/build upon the `demo_script.R` file from the `exercises folder`. 
+For adding some `R` content to your repository, you can either use or create your own scripts or use/build upon the `demo_script.R` file from the `exercises` folder. 
 
-Keep in mind that you should never put real research data on *GitHub*. While the data we have provided for use in this workshop are synthetic, we still recommend that you do not upload in the repositories you create (also to establish "data protection"-compatible practices for yourself).
-
+**NB**: Keep in mind that you should never put real research data on *GitHub*. While the data we have provided for use in this workshop are synthetic, we still recommend that you do not upload the data to the repositories you create (also to establish "data protection"-compatible practices for yourself).
 
 ```{block, box.title = "Exercise 1", box.body = list(fill = "white"), box.icon = "fa-star"}
 After you've made sure that everything works, create a new *RStudio*  project in the existing directory with `Git` initialized that you should have created yesterday. Next, create a *GitHub* repository and connect it to your local project.

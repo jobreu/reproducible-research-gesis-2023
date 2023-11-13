@@ -34,7 +34,7 @@ course_content_2
 
 As we said in the introduction, we cannot cover all tools and topics related to reproducible research in this workshop. However, we want to use this session to at least mention and provide pointers to resources for some of these topics. Things we did not cover (TWDNC):
 
-- Literate programming & reproducible papers
+- Reproducible documents/papers
 - Data sharing
 - Collaboration with `Git` & *GitHub*
 - Alternatives to *Docker*
@@ -43,7 +43,7 @@ As we said in the introduction, we cannot cover all tools and topics related to 
 
 ---
 
-## TWDNC: Literate programming
+## TWDNC: Reproducible documents
 
 Formats for [literate programming](https://en.wikipedia.org/wiki/Literate_programming) that combine text, code, and output, such as:
 
@@ -56,7 +56,7 @@ Formats for [literate programming](https://en.wikipedia.org/wiki/Literate_progra
 
 ---
 
-## TWDNC: Literate programming
+## TWDNC: Reproducible documents
 
 Some helpful resources for getting started or digging deeper `r ji("pick")`:
 

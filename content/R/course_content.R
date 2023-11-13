@@ -24,11 +24,11 @@ course_content_2 <-
     "09:00 - 09:30", "Recap Day 1",
     "09:30 - 11:00", "Dependency management",
     "11:00 - 11:15", "Coffee Break",
-    "10:15 - 12:00", "Saving computational environments",
+    "10:15 - 12:00", "Build your own Binder",
     "12:00 - 13:00", "Lunch Break",
     "13:00 - 14:30", "Binder & Notebooks",
     "14:30 - 14:45", "Coffee Break",
-    "14:45 - 16:00", "Build your own Binder",
+    "14:45 - 16:00", "Saving computational environments",
     "16:00 - 17:00", "Recap & Outlook"
   ) %>%
   knitr::kable() %>%

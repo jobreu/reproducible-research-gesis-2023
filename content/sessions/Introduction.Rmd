@@ -191,7 +191,7 @@ We will cover several different tools that can be used for reproducible research
 
 --
 
-Our goal is that people with no or only very limited experience with the tools we will cover in this workshop are able to follow and keep up. For those who already have quite some experience with one or more of the tools we will cover, feel free to try out some additional things or options, or have a closer look at documentation of the tools (also if the exercises are too easy for you and you are done earlier with them).
+Our goal is that people with no or only very limited experience with the tools we will cover in this workshop are able to follow and keep up. For those who already have quite some experience with one or more of the tools we will cover, feel free to try out some additional things or options (you can, e.g., check some of the additional topics and tools from our [Outlook slides](https://jobreu.github.io/reproducible-research-gesis-2022/slides/Recap_outlook.html)), or have a closer look at documentation of the tools. This also applies if the exercises are too easy for you and you are done earlier with them).
 
 ---
 
