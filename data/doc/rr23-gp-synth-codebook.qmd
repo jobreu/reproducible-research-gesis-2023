@@ -1,0 +1,103 @@
+---
+title: "Codebook for synthetic (and strongly reduced) version of GESIS Panel wave ja and jc"
+author: "Bernd Weiss"
+date: 2023-11-16
+format: 
+  html:
+    self-contained: true
+toc: true
+execute:
+  cache: true
+---
+
+All official documentation can be found here: [https://www.gesis.org/en/gesis-panel/documentation](https://www.gesis.org/en/gesis-panel/documentation). To learn more about the data, see [https://search.gesis.org/research_data/ZA5665](https://search.gesis.org/research_data/ZA5665).
+
+
+- z000001a: Respondent ID
+- t: Timepoint of survey
+- wave: Corresponding wave
+- year: Survey year
+- cohort: Recruitment cohort
+- sex: Sex of respondent
+  - 1:	Male, 2:	Female
+- yob: Year of birth
+- hle: Highest level of education
+- pinc: Personal net income
+  - 1:	Unter 300 €, 2:	300 up to 500 €, 3:	500 up to 700 €, 4:	700 up to 900 €,
+  5:	900 up to 1100 €, 6:	1100 up to 1300 €, 7:	1300 up to 1500 €, 8:	1500 up 
+  to 1700 €, 9:	1700 up to 2000 €, 10:	2000 up to 2300 €, 11:	2300 up to 2600 €
+  12:	2600 up to 3200 €, 13:	3200 up to 4000 €, 14:	4000 up to 5000 €, 
+  15:	5000 € and more, 97:	I have no income of my own, 98:	I dont know
+- hhinc: Household net income
+  - 1:	Under 900 €, 2:	900 up to 1300 €, 3:	1300 up to 1700 €, 
+  4:	1700 up to 2300 €, 5:	2300 up to 3200 €, 6:	3200 up to 4000 €,
+  7:	4000 up to 5000 €, 8:	5000 up to 6000 €, 9:	6000 € and more, 98:
+  I dont know
+- marstat: Marital status
+  - 1:	Single, 2:	Married/ R.P. living together, 3:	Married/ R.P. living apart,
+  4:	Divorced/ R.P. Annulled, 5:	Widowed/ R.P. died
+- z000002a: Studiennummer des Archivs       
+- jczf001a: Media use: watching TV, movies and videos
+  - 1: daily, 2: More than once a week, 3: Once a week, 4: Less frequently than 
+  once a week, 5: Never
+- jczf002a: Media use: listening to music
+  - 1: daily, 2: More than once a week, 3: Once a week, 4: Less frequently than 
+  once a week, 5: Never
+- jczf003a: Media usage: listening to the radio 
+  - 1: daily, 2: More than once a week, 3: Once a week, 4: Less frequently than 
+  once a week, 5: Never
+- jczf004a: Media use: read daily newspaper/ newspaper 
+  - 1: daily, 2: More than once a week, 3: Once a week, 4: Less frequently than 
+  once a week, 5: Never
+- jczf005a: Media use: reading journals/magazines
+  - 1: daily, 2: More than once a week, 3: Once a week, 4: Less frequently than 
+  once a week, 5: Never
+- jczf006a: Media use: reading books     
+  - 1: daily, 2: More than once a week, 3: Once a week, 4: Less frequently than 
+  once a week, 5: Never
+- jczf007a: Internet usage 
+  - 1: daily, 2: More than once a week, 3: Once a week, 4: Less frequently than 
+  once a week, 5: Never
+- jazc039a: Choice of party (Sonntagsfrage)
+  - 1: CDU/CSU, 2: SPD, 3: FDP, 4: DIE LINKE, 5: GRÜNE, 6: AfD, 7: Other party, 
+  and that is:, 98: I don’t know.
+- jczq009a: Overall assessment of survey
+  - 1: Not at all, 2: Not so good, 3: Moderately, 4: Good, 5: Very good
+- jczf030a: Social media usage: Facebook
+  - 0: No, 1: Yes
+- jczf031a: Social media usage: Twitter
+  - 0: No, 1: Yes
+- jczf032a: Social media usage: Instagram
+  - 0: No, 1: Yes
+- jczf033a: Social media usage: LinkedIn     
+  - 0: No, 1: Yes
+- jczf034a: Use of social media: Stayfriends
+  - 0: No, 1: Yes
+- jczf035a: Use of social media: XING
+  - 0: No, 1: Yes
+- jczf036a: Social media usage: YouTube
+  - 0: No, 1: Yes
+- jczf037a: Social media usage: Pinterest
+  - 0: No, 1: Yes
+- jczf038a: Social media usage: Snapchat  
+  - 0: No, 1: Yes
+- jczf039a: Social media usage: TikTok
+  - 0: No, 1: Yes
+- jczj074a: Compassion for refugees 
+  - 1: not at all to 5: very strong
+- jczj075a: Sympathy with refugees
+  - 1: Not at all sympathetic to 5: Very sympathetic
+- jczj079a: Preference refugees in residential environment ("I would not object 
+against the presence of refugees in my residential area.") 
+  - 1: Does not apply at all to 5: Totally agree
+- jcdu080a: Connectedness EU ("How closely do you feel connected to the EU?")
+  - 1: Very tight, 2: Tight, 3: Not so tight, 4: Not tight at all, 98: I don’t 
+  know 
+- jcdu081a: Attitude to EU admission procedure Ukraine ("Ukraine applied for EU 
+membership in March this year, calling for a fast-track procedure.")
+  - 1: Admit Ukraine under fast-track procedure, 2: Regularly admit Ukraine, 
+  3: Do not regularly admit Ukraine, 98: I don’t know
+- jcdu082a: Consent: Russia threat to peace in Europe
+  - 1: I totally agree, 2: I rather agree, 3: Rather disagree, 4: Fully disagree, 98: I don’t know
+- jcct087a: Trust: In people in general ("People can generally be trusted.")
+  - 1: I totally agree, 2: I rather agree, 3: Rather disagree, 4: Fully disagree, 98: Don’t know 

@@ -1,0 +1,167 @@
+---
+title: "Create synthetic (and strongly reduced) version of GESIS Panel wave ja and jc"
+author: "Bernd Weiss"
+date: 2023-11-16
+format: 
+  html:
+    self-contained: true
+toc: true
+execute:
+  cache: true
+---
+
+## Preamble
+
+For more information about the dataset, the documentation (codebook, wave report etc.) and how to obtain it, see [https://www.gesis.org/en/gesis-panel/data](https://www.gesis.org/en/gesis-panel/data). 
+
+:::{.callout-warning}
+Important: "Synthetic version" means that we provide a version of the datset 
+that (mostly) looks and feels like the original dataset BUT it cannot be used 
+for any serious scientific work.
+:::
+
+The synthetic version of the datset has been created using the synthpop package: [https://cran.r-project.org/web/packages/synthpop/index.html](https://cran.r-project.org/web/packages/synthpop/index.html).
+
+
+Load packages:
+```{r}
+library(synthpop)
+library(haven)
+library(tidyverse)
+library(quarto)
+```
+
+
+
+## Load datasets, create subset, and convert variables
+
+Load most recent (as of Nov 5th, 2023) version of GESIS Panel dataset (wave jc) 
+and reduce its size drastically:
+```{r}
+source("ZA5664-65_merge-and-append-files.R")
+
+# jcza003a: Participation, dichotomous and AAPOR code indicating complete or
+# mostly complete interview
+dfx_jc <- datc %>% filter(jcza003a == 1 & jcza006a %in% c(11, 12)) %>% 
+  select(z000001a:z000012c, starts_with("jc") | starts_with("ja"))
+
+```
+
+Load demographic dataset to add some basic sociodemographic variables:
+```{r}
+dfx_demo <- read_dta(file.path("J:", "Work", "GESISPanel", "03_daten", 
+                               "masterdatensatz", "ZA5665_GESIS_Panel_v49-0-0", 
+                               "data", "stata", 
+                               "ZA5665_demography_v49-0-0.dta"))
+```
+
+Reduce demographic dataset to wave jc:
+```{r}
+dfx_demo_jc <- dfx_demo %>% 
+  filter(wave == "jc") %>% 
+  select(-c("z000002a", "z000003a", "z000005a"))
+dim(dfx_demo_jc)
+```
+
+Join both datasets:
+```{r}
+dfx_final_joined <- dfx_demo_jc %>% left_join(., dfx_jc, by = "z000001a")
+dim(dfx_final_joined)
+```
+
+
+Declare missing values:
+```{r}
+dfx_final_joined[dfx_final_joined < 0] <- NA
+```
+
+
+Create final data set that will be used to create the synthetic dataset. For the 
+synthpop package to work properly, a few variables need to be converted to 
+factors. The result is stored in a data.frame since synthpop does not like 
+tibbles:
+```{r}
+dfx_final <- dfx_final_joined %>% 
+  select(z000001a:z000012c, jczf001a:jczf007a, sex, yob, hle, marstat,
+         jazc039a,
+         jczq009a, jczf030a:jczf039a, jczj074a, jczj075a, jczj079a, jcdu080a,
+         jcdu081a, jcdu082a, jcct087a) %>% 
+  select(-ends_with("_flag") & -ends_with("_orig"), 
+         -c(invmode, partmode, aapor),
+         -c(z000003a:z000012c)) %>% 
+  mutate_at(vars(sex, hle, marstat,
+               jczf001a:jczf007a,
+               jazc039a,
+               jczq009a, jczf030a:jczf039a, jczj074a, jczj075a, jczj079a, jcdu080a,
+               jcdu081a, jcdu082a, jcct087a), list(factor)) %>% 
+  labelled::remove_val_labels() %>% 
+as.data.frame()
+names(dfx_final)
+```
+
+
+
+## Create synthetic version of dataset
+
+Then, apply the `syn` command creating a synthetic version of the dataset. 
+Note, `syn` returns a list containing a `data.frame` object (also called `syn`), 
+which then is assigned to `dfx_synth`:
+
+```{r}
+dfx_synth_list <- syn(dfx_final, seed = 364624)
+dfx_synth <- dfx_synth_list[["syn"]]
+```
+
+
+
+
+
+```{r}
+dim(dfx_final_joined)
+```
+
+```{r}
+dim(dfx_synth)
+```
+
+```{r}
+options(repr.plot.width = 100, repr.plot.height = 10.75, repr.plot.res = 100)
+compare(dfx_synth_list, dfx_final, vars = c("sex", "marstat", "pinc", 
+                                            "jazc039a"))
+```
+
+
+
+```{r}
+head(dfx_final[1:5, 1:5])
+```
+
+
+```{r}
+head(dfx_synth[1:5, 1:5])
+```
+
+```{r}
+cor(as.numeric(dfx_final$jczf001a), as.numeric(dfx_final$jczf007a), use = "complete.obs")
+cor(as.numeric(dfx_synth$jczf001a), as.numeric(dfx_synth$jczf007a), use = "complete.obs")
+```
+
+
+## Export synthetic dataset
+
+Note, in order to export the synthetic version, the list object needs to be 
+provided. Also, the data will be exported as Stata as well as csv file. 
+
+```{r}
+write.syn(dfx_synth_list, file = "ZA5665_GESIS_Panel_v49-0-0_Stata14_synthetic-data", 
+            filetype = "Stata", save.complete = FALSE)
+write.syn(dfx_synth_list, file = "ZA5665_GESIS_Panel_v49-0-0_CSV_synthetic-data", 
+            filetype = "csv", save.complete = FALSE)
+```
+
+```{r}
+renderthis::to_pdf("create-gesis-panel-jc-synth.html")
+# quarto_serve("documentation/rr23-gp-synth-codebook.qmd")
+```
+
+
