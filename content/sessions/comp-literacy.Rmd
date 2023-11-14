@@ -22,7 +22,10 @@ layout: true
 
 .center[![](../../content/img/bw/live-streaming.png)]
 
-.small[The script `create-project.sh` can be found in `./content/sh/` or, to be more, precise: https://github.com/jobreu/reproducible-research-gesis-2023/tree/main/content/sh]
+.small[The script `create-project.sh` can be found in `./content/sh/` or, to be 
+more, precise: https://github.com/jobreu/reproducible-research-gesis-2023/tree/main/content/sh.
+
+Also, it is a bash script and need to be run in a Bash shell, e.g., Git Bash.]. 
 
 .small[<div>(Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>)</div>]
 
@@ -44,8 +47,11 @@ class: center, middle
 - In "The Turing Way", some of these [Barriers to reproducibility](https://the-turing-way.netlify.app/reproducible-research/overview/overview-barriers.html#barriers-to-reproducibility) are introduced
 
 - Among them: 
+
     - Big data and complex computational infrastructure
+    
     - Takes time
+    
     - Requires additional skills (computer literacy)
 
 ---
@@ -59,7 +65,6 @@ context
 - Provide necessary skills for subsequent modules
 
 - Topics that will be covered:
-
     - Be lazy, but trustworthy!
     - Organization of a research project on a computer (file/folder structure, naming conventions, etc.)
     - Working with files and folders (file system, absolute and relative paths, working directory)
