@@ -4,6 +4,7 @@ subtitle: "An introduction to Git"
 author: "Bernd Weiß"
 date: "2023-11-16"
 presenter: Bernd
+toc: true
 editor_options: 
   chunk_output_type: console
 ---
@@ -11,7 +12,6 @@ layout: true
 
 
 ```{r, echo = FALSE}
-## IMPORTANT: Compile comp-literacy FIRST!!!!!
 ```
 
 
@@ -133,6 +133,13 @@ f.close()
    bash = 'D:/Programme/msys64/usr/bin/bash.exe'
  ))
 ```
+
+
+
+class: center, middle
+# Git Part 1 -- An introduction
+
+---
 
 
 ## 
@@ -720,14 +727,12 @@ numbers, `git` can identify changes in a file.]
 ---
 
 
-### Some things do NOT belong in your Git repo
 
-- Binary files do not belong in your repository
+### Security -- Some things do NOT belong in your Git repo
 
-- Also, sensitive data cannot go into your repo (especially, if you push it to
-a remote location)
+- Be extremely careful including sensitive information (e.g., personal data, passwords, access tokens) into a (public) GitHub repository. There are people out there who search for these things... see also https://docs.github.com/en/code-security/secret-scanning
 
-- `.gitignore` to the rescue
+- Use a `.gitignore` file to exclude sensitive files/folders
 
 - The text file `.gitignore` is placed directly in your repo's root (see next 
 slide)
@@ -744,6 +749,18 @@ data/
 - For more information, see https://git-scm.com/docs/gitignore
 
 ---
+
+
+### More security
+
+- Please enable [two-factor authentication on GitHub](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)
+
+- In case you have accidentally include sensitive information, check out this
+GitHub website on [Removing sensitive data from a repository](
+https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)
+
+---
+
 
 
 ### Location of `.gitignore` in your repo's root
@@ -771,6 +788,589 @@ material!) in your new project folder
 
 ---
 
+
+
+class: center, middle
+## More terminology
+
+---
+
+
+### The magic of DAGs (HEAD, commit IDs, ...) 
+
+- From a user perspective, important "building blocks" of a repository are 
+commits (and branches).
+
+- Git's history (the sequence of commits) is based on a directed acyclic graphs 
+(DAG).
+
+```{r, out.width = "65%", echo = F}
+woRkshoptools::include_picture("./bw/fig_git-dag.png")
+```
+
+.small[(Source: https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)]
+
+
+---
+
+
+### More information on Git and DAGs
+
+This is just a brief excursus and I am including the link to an example of a 
+Git DAG:
+
+https://subscription.packtpub.com/book/application-development/9781782168454/1/ch01lvl1sec11/viewing-the-dag
+
+---
+
+
+
+
+class: center, middle
+## Local branches 
+
+---
+
+
+### Branching (local)
+
+- In addition to providing a powerful undo function, Git also allows to "toy
+around" with different (parallel) "versions" of your text or code
+
+- Let's assume that you wrote a first draft of an R script.
+Everything works as expected. From a programming perspective, though, the
+script is just ugly and it is therefore quite hard to add additional
+features
+
+- What I used to do was: save my original file as `my-great-program.R` and
+start working on a new version of the program using a file called
+`my-great-program_new.R`
+
+- This is not necessary with `git branch`
+
+---
+
+
+
+### Visualization of branches in Git 
+
+```{r, out.width = "100%", echo = F}
+woRkshoptools::include_picture("./bw/fig_branches1.png")
+```
+
+.small[(Source: https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)]
+
+---
+
+
+
+### Example of a (local) branch I
+
+Let's start with a list of files that are currently in my project folder:
+
+```{sh}
+cd e:/tmp/git_test_folder
+ls -la
+```
+
+```{sh}
+cd e:/tmp/git_test_folder
+git status
+```
+
+---
+
+
+### Example of a (local) branch II
+
+What branches are available? Once we have more than one branch, the asterisk `*`
+shows which branch is active (or: in which branch we are in)
+
+
+```{sh}
+cd e:/tmp/git_test_folder
+git branch
+```
+
+Create a new branch called `testing`
+
+```{sh}
+cd e:/tmp/git_test_folder
+git branch testing
+```
+
+
+```{sh}
+cd e:/tmp/git_test_folder
+git branch
+```
+
+---
+
+
+### Example of a (local) branch III
+
+How do we get into the `testing` branch? Use `git checkout testing`
+
+```{sh}
+cd e:/tmp/git_test_folder
+git checkout testing
+git branch
+```
+
+---
+
+
+### Example of a (local) branch IV
+
+Create a new file `testingfile`
+
+```{sh}
+cd e:/tmp/git_test_folder
+touch testingfile
+echo "in testing" > testingfile
+ls -la
+```
+
+---
+
+
+### Example of a (local) branch V
+
+```{sh}
+cd e:/tmp/git_test_folder
+cat testingfile
+```
+
+```{sh}
+cd e:/tmp/git_test_folder
+git add testingfile
+git commit -m "new branch testing"
+```
+
+---
+
+
+### Example of a (local) branch VI
+
+Switch back to branch `main` (and `cat testingfile` should result in an error
+message, since there is no `testingfile` in branch `main`)
+
+
+```{sh}
+cd e:/tmp/git_test_folder
+git checkout main
+ls -la
+```
+
+---
+
+
+### Example of a (local) branch VII
+
+Now, we can use `merge` to combine `main` and `testing`
+
+```{sh}
+cd e:/tmp/git_test_folder
+git merge testing
+```
+
+```{sh, echo = FALSE}
+cd e:/tmp/git_test_folder
+ls -la
+```
+
+
+```{sh}
+cd e:/tmp/git_test_folder
+cat testingfile
+```
+
+---
+
+
+
+class: center, middle
+## GitHub
+
+---
+
+
+### Disclaimer
+
+Some of the following slides are heavily influenced by another course on ["Reproducible research workflows for psychologists"](http://frederikaust.com/reproducible-research-practices-workshop/) by Frederik Aust and Johannes Breuer, especially the part on ["Collaborate with Git & GitHub"](https://crsh.github.io/reproducible-research-practices-workshop/slides/6_github_collaboration.html) 
+
+---
+
+
+### 
+
+.center[<img src="https://www.git-tower.com/learn/media/pages/git/ebook/en/desktop-gui/remote-repositories/introduction/405ca134e0-1667823656/basic-remote-workflow.png" alt="drawing" width="500"/>]
+
+
+(Source: https://www.git-tower.com/learn/git/ebook/en/desktop-gui/remote-repositories/introduction)
+
+---
+
+
+### Working with remote repositories
+
+- As mentioned in the introduction, Git is especially powerful when it comes to
+collaborative work, e.g., via GitGub or GitLab. 
+
+- In order to work with others, you need some sort of
+connection to these other person(s). The one I am discussing here is having a
+central remote repository C. 
+
+- Let us assume that you have another collaborator. Then you as well as the 
+other person need to synchronize with the same repository C. 
+
+- There also exists another model which is based on a decentralized
+approach, where you could individually sync with x-y, x-z, y-z etc.
+
+---
+
+
+### Establishing a connection to a remote repository
+
+There are two ways to establish a connection to a remote repository (e.g., on 
+GitHub):
+
+  1. Clone a remote repository via `git clone ...`.
+
+  2. Setting up a new remote repository via `git remote add <name> <url>`. 
+
+---
+
+
+class: center, middle
+### Cloning 
+
+---
+
+
+
+
+### Cloning a remote repository
+
+- Cloning a remote repository via GitHub/GitLab/... is quite easy
+
+- Visit the website, on GitHub look for the green "Code" button, see also the screenshot below
+
+- Decide whether you would like to use the HTTPS or SSH protocoll
+
+- Copy the link and execute `git clone`
+
+- Cloning -- in contrast to "Download ZIP" -- means that you also download the entire Git history (i.e., the 
+`.git` folder)
+
+- Note: Of course, you need to have access to the GitHub repository, i.e., it is
+either a public repo or you have been granted access
+
+---
+
+
+### How to clone a (public) remote repository I
+
+- Here is an example using my workshop on "Meta-Analysis in Social Research" 
+(public repo), see https://github.com/berndweiss/dji-meta-analysis-2019
+
+```{r, out.width = "90%", echo = F}
+woRkshoptools::include_picture("./bw/f_github-clone.png")
+```
+
+---
+
+
+### How to clone a remote repository II
+
+Open a CLI and execute: `git clone https://github.com/berndweiss/dji-meta-analysis-2019.git`
+
+
+```{sh, echo = FALSE}
+if [ -d "e:/tmp/dji-meta-analysis-2019" ]; then
+rm -rf "e:/tmp/dji-meta-analysis-2019"
+fi
+```
+
+
+```{sh}
+cd e:/tmp
+git clone https://github.com/berndweiss/dji-meta-analysis-2019.git
+```
+
+```{sh}
+cd e:/tmp
+ls -la
+```
+
+---
+
+
+class: center, middle
+### Authentication 
+
+---
+
+
+### Authentication: Local or remote & HTTPS or SSH?
+
+- A Git project/repo is stored in a repository, which can be local or remote
+
+- When using Git to access a (nonpublic, aka private) remote repository (for 
+backup or collaborative work) on a remote server, you need to authenticate 
+yourself to the server
+
+- There are two ways of authentication: HTTPS or SSH
+
+---
+
+
+### Choose a remote server
+
+- GitHub (which will be using)
+
+- GitLab
+
+- ...
+
+---
+
+
+
+### GitHub: Using personal access tokens
+
+- These days, [authentication via personal access tokens (PAT) (and
+https)](https://happygitwithr.com/https-pat.html) seems the way to go when using
+GitHub
+
+- In the following, I will illustrate the process using multiple screenshots
+
+- Note that my explanation does not include any R/RStudio-related processes.
+Johannes talks about these things in more detail
+
+- Finally, I will focus on MS Windows. Arnim can help with MacOS/Linux.
+
+---
+
+
+### 
+
+In GitHub, go to the `Settings` website:
+
+```{r, out.width = "55%", echo = F}
+woRkshoptools::include_picture("./bw/f_github-pat-0-settings.png")
+```
+
+---
+
+
+### 
+
+Next, go to the `Developer Settings` entry: 
+
+```{r, out.width = "90%", echo = F}
+woRkshoptools::include_picture("./bw/f_github-pat-1-settings.png")
+```
+
+---
+
+
+### 
+
+Then, choose `Tokens (classic)`:
+
+```{r, out.width = "90%", echo = F}
+woRkshoptools::include_picture("./bw/f_github-pat-2-developer.png")
+```
+
+---
+
+
+### 
+
+And, generate a new token; important, save this Token (e.g., in your password manager):
+
+```{r, out.width = "90%", echo = F}
+woRkshoptools::include_picture("./bw/f_github-pat-3-create-token.png")
+```
+
+---
+
+
+### 
+
+When you are now cloning a new repository (or pushing/pulling **for the first**
+time), you will be asked once to enter your Token
+
+```{r, out.width = "90%", echo = F}
+woRkshoptools::include_picture("./bw/f_github-pat-4-enter-credent.png")
+```
+
+---
+
+
+### 
+
+If, for whatever reason, you decide to reset/remove your credentials, you can do so
+using the [Windows Credentials
+Manager](https://support.microsoft.com/en-us/windows/accessing-credential-manager-1b5c916a-6a16-889f-8581-fc16e8165ac0)
+(in German: "Anmeldeinformationsverwaltung")
+
+
+```{r, out.width = "60%", echo = F}
+woRkshoptools::include_picture("./bw/f_github-pat-5-wincred.png")
+```
+
+---
+
+
+### Setting up SSH
+
+- An alternative to using a PAT, is using SSH.
+
+- SSH is a network protocol that comes in handy, when you work with remote
+repositories and when you do not want to type-in your password every time you
+pull (fetch) or push (send) from a remote repository. You still need to
+authenticate yourself, though.
+
+- To work with Git on you local computer, you do not need SSH (= Secure Shell). 
+
+- Authentication in SSH (which is also the name of the program) works by using a
+private and a public key (usually the public key has the file extension `.pub`,
+e.g., my public key is `id_rsa.pub`). When you start working with SSH for the
+very first time, you have to create both keys.
+
+---
+
+
+### 
+
+- The private key remains on your local computer and you have to make sure that
+it is safe -- it is a simple text file and it is your password now, and everyone
+who has your private key can access your files. Again, everyone who has your
+private key has your password!
+
+This is what my *public key* looks like:
+
+    ssh-rsa
+    AAAAB3NzaC1yc2EAAAABIwAAAQEAyOQ9RT6TkfgkdO2NspzdVJE5CZ03yYAhVwLGo
+    CrI3E9/Ix0MAySunXExjhsQi2XkhPBjLOEahYuuLaAWHuBc7apUPRNSBy+mdUHnH3
+    0BdTQijQ6vj3RL99HO4yrZnipIlkS5ufw/+hpbXXOzSOqTvyGtL9ygm3eA2HDSQtz
+    2ptFq8anODJDKrgTbNLb/YZ9KDIcpdO/Sfk4LtvaGF3tIFlyE+pogNmN4eWiYg9Xv
+    25BhVVxWMHadRFLeDastWO4SedriEHzQYaNgxVNTufqolJ0nbg4R//fVDxjR2SbzV
+    AHLZ+eVPUx+vzcPVMP9wYPcnii9YLiSRy+hlUAOR/kXeQ== berndweiss
+
+---
+
+
+class: middle
+### 
+
+**The *public key* (not the private key!) has to be stored at the
+GitHub/GitLab/... website. Now, everyone who has your public key can encrypt
+files (that are sent to you via the internet) but only you (or anyone else who
+has your private key) can decrypt the files. And, for that reasons you do not
+have to login everytime you push/pull files from the remote repository.**
+
+---
+
+
+### 
+
+- How to setup SSH on you computer is explained on this website:
+https://docs.gitlab.com/ce/ssh/README.html ("Generate an SSH key pair")
+
+- The most important point is that `ssh` is able to find your key pair, i.e., it
+needs to be located in your HOME folder
+
+If everything works well, you should receive the following friendly welcome
+message after typing in the command `ssh -T git@github.com`:
+
+> Hi berndweiss! You've successfully authenticated, but GitHub does not provide shell access.
+
+---
+
+
+class: center, middle
+### Set up a new remote respositories
+
+---
+
+
+### Adding a new remote repository via<br> `git remote add`
+
+- Adding a new remote repository can be accomplished using the git command 
+`git remote add <name> <url>`. The usual name for `<name>` is `origin`, 
+however, feel free to choose another name (when you clone a repo, then this has 
+already happened). 
+
+- SSH: The `<url>` for
+this repository looks like `git@git.gesis.org:weissbd/ps2017-xx-intro2git.git`;
+another example is this one:
+`git@github.com:berndweiss/ps2017-11_porto-campbell-ma-workshop.git`.
+  
+- HTTPS: `git remote add origin https://github.com/berndweiss/lala.git`  
+  
+---
+
+
+### Visualization of a Git workflow
+
+```{r, out.width = "85%", echo = F}
+woRkshoptools::include_picture("./bw/fig_git-workflow-hahm.png")
+```
+
+.small[(Source: https://teaching.dahahm.de/teaching/ss22/dissys/2022/05/31/git_workflow.html)]
+
+---
+
+
+
+
+### `git pull`
+
+- Given that you have already established a link to an remote server (such as
+GitHub, e.g., via `git remote add` or `git clone`), updates can be downloaded
+via the `git pull <name remote server> <branch>` command
+
+- Most often, this is: `git pull origin main`
+
+  - `origin` is an arbitrary name
+
+  - `main` is the respective branch
+
+---
+
+
+### 
+
+- In the background, `git pull` combines two steps, `git fetch` and `git merge`
+
+.center[<img src="https://wac-cdn.atlassian.com/dam/jcr:0269bb2d-eb7f-43d8-80a2-8afa88d11eea/02%20bubble%20diagram-02.svg?cdnVersion=637" alt="drawing" width="400"/>]
+
+(Source: https://www.atlassian.com/git/tutorials/syncing/git-pull)
+
+---
+
+
+### `git push`
+
+- Again, given that you have already established a link to an remote server
+(such as GitHub, e.g., via `git remote add` or `git clone`), updates can be
+uploaded via the `git push <name remote server> <branch>` command
+
+- Most often, this is `git push origin main`
+
+- More information can be found here: https://www.atlassian.com/git/tutorials/syncing/git-push
+
+---
+
+
+class: center, middle
+# Git Part 2 -- The (slightly more) advanced stuff
+
+---
 
 
 class: center, middle
@@ -934,7 +1534,7 @@ And, let's see the history via `git log`:
 
 ```{sh}
 cd e:/tmp/git_test_folder
-git log
+git log --oneline
 ```
 
 Now, we would like to discard any changes introduced by M2 by using `git
@@ -992,7 +1592,7 @@ cat test.R
 
 ```{sh}
 cd e:/tmp/git_test_folder
-git log
+git log --oneline
 ```
 
 
@@ -1008,40 +1608,6 @@ For more information see https://www.atlassian.com/git/tutorials/undoing-changes
 ---
 
 
-class: center, middle
-## More terminology
-
----
-
-
-### The magic of DAGs (HEAD, commit IDs, ...) 
-
-- From a user perspective, important "building blocks" of a repository are 
-commits (and branches).
-
-- Git's history (the sequence of commits) is based on a directed acyclic graphs 
-(DAG).
-
-```{r, out.width = "65%", echo = F}
-woRkshoptools::include_picture("./bw/fig_git-dag.png")
-```
-
-.small[(Source: https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)]
-
-
----
-
-
-
-### More information on Git and DAGs
-
-This is just a brief excursus and I am including the link to an example of a 
-Git DAG:
-
-https://subscription.packtpub.com/book/application-development/9781782168454/1/ch01lvl1sec11/viewing-the-dag
-
----
-
 
 
 
@@ -1051,7 +1617,7 @@ class: center, middle
 ---
 
 
-### What has changed at the file level? `git show` and `git diff`
+### What has changed at the file level?<br> `git show` and `git diff`
 
 In this chapter we will learn about `git show` and `git diff`, which show 
 differences at the file level. However, for those of you who do not feel 
@@ -1102,333 +1668,251 @@ woRkshoptools::include_picture("./bw/fig_git-diff.png")
 
 
 class: center, middle
-## Local and remote branches 
+## More on GitHub: Inviting collaborators
 
 ---
 
 
-### Branching (local)
+### Adding collaborators to your GitHub repo
 
-- In addition to providing a powerful undo function, Git also allows to "toy
-around" with different (parallel) "versions" of your text or code
+- Adding collaborators works only for GitHub repositories that you own (or have 
+access to and the respective rights)
 
-- Let's assume that you wrote a first draft of an R script.
-Everything works as expected. From a programming perspective, though, the
-script is just ugly and it is therefore quite hard to add additional
-features
+- GitHub provides a lot of collaboration features
 
-- What I used to do was: save my original file as `my-great-program.R` and
-start working on a new version of the program using a file called
-`my-great-program_new.R`
+  - Edit files in browser
+  - Change highlighting and commenting
+  - Interactive revise-and-resubmit workflow
+  - Issue tracker (to-do list and discussion)
+  - ...
 
-- This is not necessary with `git branch`
-
----
-
-
-
-### Visualization of branches in Git 
-
-```{r, out.width = "100%", echo = F}
-woRkshoptools::include_picture("./bw/fig_branches1.png")
-```
-
-.small[(Source: https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)]
+.small[(Source: http://frederikaust.com/reproducible-research-practices-workshop/slides/6_github_collaboration.html#5)]
 
 ---
 
 
+### Workflows for collaboration
 
-### Example of a (local) branch I
+- Adding changes to a repo without prior review 
+  - Push directly to main branch on GitHub
+  - You need be an invited collaborator
 
-Let's start with a list of files that are currently in my project folder:
+- Suggest changes with review (pull request)
+  - Create a new branch ("parallel universe" of repository)
+  - You can be an invited collaborator or a complete stranger
 
-```{sh}
-cd e:/tmp/git_test_folder
-ls -la
-```
+- Edits can be made directly on GitHub or locally on your computer
 
-```{sh}
-cd e:/tmp/git_test_folder
-git status
-```
-
----
-
-
-### Example of a (local) branch II
-
-What branches are available? Once we have more than one branch, the asterisk `*`
-shows which branch is active (or: in which branch we are in)
-
-
-```{sh}
-cd e:/tmp/git_test_folder
-git branch
-```
-
-Create a new branch called `testing`
-
-```{sh}
-cd e:/tmp/git_test_folder
-git branch testing
-```
-
-
-```{sh}
-cd e:/tmp/git_test_folder
-git branch
-```
-
----
-
-
-### Example of a (local) branch III
-
-How do we get into the `testing` branch? Use `git checkout testing`
-
-```{sh}
-cd e:/tmp/git_test_folder
-git checkout testing
-git branch
-```
-
----
-
-
-### Example of a (local) branch IV
-
-Create a new file `testingfile`
-
-```{sh}
-cd e:/tmp/git_test_folder
-touch testingfile
-echo "in testing" > testingfile
-ls -la
-```
-
----
-
-
-### Example of a (local) branch V
-
-```{sh}
-cd e:/tmp/git_test_folder
-cat testingfile
-```
-
-```{sh}
-cd e:/tmp/git_test_folder
-git add testingfile
-git commit -m "new branch testing"
-```
-
----
-
-
-### Example of a (local) branch VI
-
-Switch back to branch `main` (and `cat testingfile` should result in an error
-message, since there is no `testingfile` in branch `main`)
-
-
-```{sh}
-cd e:/tmp/git_test_folder
-git checkout main
-ls -la
-```
-
----
-
-
-### Example of a (local) branch VII
-
-Now, we can use `merge` to combine `main` and `testing`
-
-```{sh}
-cd e:/tmp/git_test_folder
-git merge testing
-```
-
-```{sh, echo = FALSE}
-cd e:/tmp/git_test_folder
-ls -la
-```
-
-
-```{sh}
-cd e:/tmp/git_test_folder
-cat testingfile
-```
-
----
-    
-
-### Working with remote repositories
-
-- As mentioned in the introduction, Git is especially powerful when it comes to
-collaborative work. 
-
-- In order to work with others, you need some sort of
-connection to these other person(s). The one I am discussing here is having a
-central repository C. 
-
-- Let us assume that you (x) have two other collaborators y
-and z. Then x (that's you), as well as y and z need to synchronize with the same
-repository C. There also exists another model which is based on a decentralized
-approach, where you could individually sync with x-y, x-z, y-z etc.
-
----
-
-
-### Establishing a connection to a remote repository
-
-There are two ways to establish a connection to a remote repository:
-  1. Clone a remote repository via `git clone ...`.
-  2. Setting up a new remote repository via `git remote add <name> <url>`. 
+.small[(Source: http://frederikaust.com/reproducible-research-practices-workshop/slides/6_github_collaboration.html#8)]
 
 ---
 
 
 
-### Cloning a remote repository
-
-- Cloning a remote repository via GitHub/GitLab/... is quite easy
-
-- Visit the website, on GitHub look for the green "Code" button, see also the screenshot below
-
-- Decide wether you would like to use the HTTPS or SSH protocoll
-
-- Copy the link and execute `git clone`
-
----
-
-
-### How to clone a remote repository I
-
-- Here is an example using my workshop on "Meta-Analysis in Social Research", see https://github.com/berndweiss/dji-meta-analysis-2019
+### 
 
 ```{r, out.width = "90%", echo = F}
-woRkshoptools::include_picture("./bw/f_github-clone.png")
+woRkshoptools::include_picture("./bw/f_github-collab-1.png")
 ```
 
 ---
 
 
-### How to clone a remote repository II
+### 
 
-Open a CLI and execute: `git clone https://github.com/berndweiss/dji-meta-analysis-2019.git`
-
-
-```{sh, echo = FALSE}
-if [ -d "e:/tmp/dji-meta-analysis-2019" ]; then
-rm -rf "e:/tmp/dji-meta-analysis-2019"
-fi
+```{r, out.width = "90%", echo = F}
+woRkshoptools::include_picture("./bw/f_github-collab-2.png")
 ```
 
+---
 
-```{sh}
-cd e:/tmp
-git clone https://github.com/berndweiss/dji-meta-analysis-2019.git
+
+### 
+
+```{r, out.width = "90%", echo = F}
+woRkshoptools::include_picture("./bw/f_github-collab-3.png")
 ```
-
-```{sh}
-cd e:/tmp
-ls -la
-```
-
-
-
----
-
-
-
-### Adding a remote repository via `git remote add ...`
-
-- Use the git command `git remote add <name> <url>`. 
-
-- The usual name for `<name>` is `origin`, however, feel free to choose another 
-name. 
-
-- The `<url>` part also determines the authentication method (`git@git...`: ssh 
-and `https://github.com/...`: https) 
-
-- Two examples: 
-  - `git@git.gesis.org:weissbd/ps2017-xx-intro2git.git`
-  - `https://github.com/berndweiss/tuma.git`
-  
----
-
-
-### Dowloading a remote branch that is not on your computer (yet)
-
-Just run a simple `git pull` (see https://stackoverflow.com/a/2294385). Then, on
-your local repository checkout to that remote branch, e.g. `git checkput
-indepday`:
-
-    Switched to a new branch 'indepday'
-    Branch 'indepday' set up to track remote branch 'indepday' from 'origin'.
-
-After checkout to `indepday`, git automatically starts tracking the new branch. 
-
----
-
-
-### (!) Exercises I
-
-Task 1:
-
-- Start the Git Bash and choose a location where you can store temporarily some
-files
-
-- Clone the repository of my workshop
-https://github.com/berndweiss/dji-meta-analysis-2019
-
-- Change into the newly created directory
-
-- List the Git history via `<your input --oneline>` (the `--oneline` is very
-handy) and determine the first 7 SHA1 digits
-
----
-
-
-### (!) Exercises II
-
-Task 2:
-
-- Create a new project folder via `create-project.sh new-project`
-
-- `cd` into your folder `new-project`
-
-- Use `git init` to initialize the Git repository
-
-- Use `git add` and `git commit` to add files and folders to your Git repo
-
-- Feel free to play around with your new Git repo
 
 ---
 
 
 class: center, middle
-## Things we could not cover
+### More on GitHub: Merge conflicts
+
+---
+
+
+### Merge conflicts
+
+- Merge conflicts occur when there are two competing changes that affect the same file *and* the same lines in that same file; or if one person decided to delete it while the other person decided to modify it 
+
+- Git will inform you about a merge conflict and will indicate the two competing changes in a file
+
+.small[(source: https://www.git-tower.com/learn/git/ebook/en/command-line/advanced-topics/merge-conflicts)]
+
+---
+
+
+### 
+
+```{r, out.width = "90%", echo = F}
+woRkshoptools::include_picture("./bw/f_merge-conf-github.png")
+```
+
+---
+
+
+### 
+
+```{r, out.width = "90%", echo = F}
+woRkshoptools::include_picture("./bw/f_merge-conf-cli.png")
+```
+
+---
+
+
+### An example of a merge conflict
+
+- This is how a merge conflict looks like in the file `test.R`:
+
+```
+<<<<<<< HEAD
+x <- rnorm(10)
+=======
+x <- rnorm(100000)
+>>>>>>> 047e3f7a00a5541622e5a40dc342df3af0591838
+mean(x)
+sd(x)
+```
+
+- A merge conflict only affects the developer who is causing a merge conflict
+
+- You have to resolve the merge conflict by editing the respective file(s) (then
+add and commit the changes) (remove the `<<<<<<<`, `=======`, `>>>>>>>` and save the file)
+
+---
+
+
+### 
+
+```{r, out.width = "90%", echo = F}
+woRkshoptools::include_picture("./bw/f_merge-conf-resolved.png")
+```
 
 ---
 
 
 
-### There is much more... 
-
-- Commit hygiene http://www.ericbmerritt.com/2011/09/21/commit-hygiene-and-git.html
-
-- `.gitconfig`
-
-- ...
-
-- A nice tutorial in German: "git - Der einfache Einstieg, eine einfache
-Anleitung, um git zu lernen. Kein Schnick-Schnack ;)
-https://rogerdudler.github.io/git-guide/index.de.html
+class: center, middle
+### More on GitHub: Forking
 
 ---
+
+
+### Forking
+
+- Forking refers to the process of creating a personal copy of someone else's
+project
+
+- Forking works only for public repositories (or, you have been invited to a
+private repository)
+
+- In order to contribute to another (public) repository via *pull requests*, you
+first need to fork the respective repository
+
+.small[(Source: https://docs.github.com/en/get-started/quickstart/contributing-to-projects)]
+
+---
+
+
+### 
+
+```{r, out.width = "90%", echo = F}
+woRkshoptools::include_picture("./bw/f_github-fork.png")
+```
+
+---
+
+
+
+class: center, middle
+### More on GitHub: Pull requests
+
+---
+
+
+### Pull requests on GitHub
+
+- Pull request only work in the context of a web platform such as GitHub or GitLab
+
+- It is a polite / the only way to contribute to another person's GitHub repository
+  - If you are a collaborator, then it is a polite way to contribute
+  - If you are not a collaborator, then it is the only way to contribute
+
+- Note, the following example is based on 
+  - two GitHub users: `berndweiss` and `berndweisspublic`
+  - both users are not collaborating
+  - on each slide I will indicate which GitHub user is currently involved
+
+---
+
+
+### 
+
+- The current status of the repo (and the file `test.R`) from the perspective of GitHub user `berndweiss`
+
+```{r, out.width = "90%", echo = F}
+woRkshoptools::include_picture("./bw/f_github-pull-requ-0.png")
+```
+
+---
+
+
+
+### 
+
+- GitHub user `berndweisspublic` insists of 100000 observations and modified the file accordingly
+
+```{r, out.width = "90%", echo = F}
+woRkshoptools::include_picture("./bw/f_github-pull-requ-1.png")
+```
+
+---
+
+
+### 
+
+Since GitHub user `berndweisspublic` does not own the repository, he cannot commit the changes but *proposes* changes
+
+```{r, out.width = "90%", echo = F}
+woRkshoptools::include_picture("./bw/f_github-pull-requ-2.png")
+```
+
+---
+
+
+### 
+
+The next step is that `berndweisspublic` creates a *pull request*, i.e., asking user `berndweiss` to accept his changes  
+
+```{r, out.width = "90%", echo = F}
+woRkshoptools::include_picture("./bw/f_github-pull-requ-3.png")
+```
+
+---
+
+
+### 
+
+GitHub user `berndweiss` is informed about a pull request; he can accept the pull request (`merge`) or close the pull request, i.e., deny it
+
+```{r, out.width = "70%", echo = F}
+woRkshoptools::include_picture("./bw/f_github-pull-requ-4.png")
+```
+
+---
+
+
 
 class: small
 ### References

@@ -1,7 +1,7 @@
 ---
 title: "Workflows for Reproducible Research with R & Git"
 subtitle: "Git & GitHub - Part 2"
-author: "Johannes Breuer, Bernd Weiss, & Arnim Bleier"
+author: "Johannes Breuer, Bernd Weiß, & Arnim Bleier"
 date: "2023-11-16"
 presenter: Johannes
 editor_options: 
