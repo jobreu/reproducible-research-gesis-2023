@@ -164,6 +164,8 @@ We have already seen and tested the file `create-project.sh` (which is small she
 
 - [Building reproducible analytical pipelines with R](https://raps-with-r.dev/) by Bruno Rodrigues
 
+- Blog post [An overview of what's out there for reproducibility with R](https://www.brodrigues.co/blog/2023-10-05-repro_overview/) by Bruno Rodrigues
+
 - [Chapter on "Computational Reproducibility"](https://lakens.github.io/statistical_inferences/14-computationalreproducibility.html) in the book/course "Improving Your Statistical Inferences" by Daniel Lakens
 
 - [BERD Course Booklet: Make Your Research Reproducible](https://berd-nfdi.github.io/BERD-reproducible-research-course/) by Heidi Seibold

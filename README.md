@@ -36,9 +36,9 @@ Participants should have some basic knowledge of `R` and *RStudio* (e.g., instal
 | ---: | :---- | :----: | :-------: | :-------: |
 | 09:30 - 10:45 | Introduction | [HTML](https://jobreu.github.io/reproducible-research-gesis-2023/slides/Introduction.html), [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2023/main/slides/Introduction.pdf) | - | - |
 | 10:45 - 11:00 | *Coffee Break* | - | - | - |
-| 11:00 - 12:00 | Computer literacy | [HTML](https://jobreu.github.io/reproducible-research-gesis-2022/slides/comp-literacy.html), [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2022/main/slides/comp-literacy.pdf) | see slides | see [create-project.sh](https://github.com/jobreu/reproducible-research-gesis-2022/blob/main/content/sh/create-project.sh) |
+| 11:00 - 12:00 | Computer literacy | [HTML](https://jobreu.github.io/reproducible-research-gesis-2023/slides/comp-literacy.html), [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2023/main/slides/comp-literacy.pdf) | see slides | see slides |
 | 12:00 - 13:00 | *Lunch Break* | - | - | - |
-| 13:00 - 15:00 | Git & GitHub - Part I | [HTML](https://jobreu.github.io/reproducible-research-gesis-2022/slides/RMarkdown.html), [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2022/main/slides/RMarkdown.pdf) | [HTML](https://jobreu.github.io/reproducible-research-gesis-2022/exercises/Exercise_RMarkdown.html) | [HTML](https://jobreu.github.io/reproducible-research-gesis-2022/solutions/Exercise_RMarkdown.html) |
+| 13:00 - 15:00 | Git & GitHub - Part I | [HTML](https://jobreu.github.io/reproducible-research-gesis-2022/slides/intro-git.html), [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2022/main/slides/intro-git.html.pdf) | see slides | see slides |
 | 15:00 - 15:15 | *Coffee Break* | - | - | - |
 | 15:15 - 16:30 | Git & GitHub - Part II | [HTML](https://jobreu.github.io/reproducible-research-gesis-2023/slides/Git_Part2.html), [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2023/main/slides/Git_Part2.pdf) | [HTML](https://jobreu.github.io/reproducible-research-gesis-2023/exercises/Exercise_Git_RStudio.html) | [HTML](https://jobreu.github.io/reproducible-research-gesis-2023/solutions/Exercise_Git_RStudio.html) |
 | 16:30 - 17:00 | Q&A | - | - | - |
