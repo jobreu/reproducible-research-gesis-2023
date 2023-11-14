@@ -138,7 +138,7 @@ f.close()
 ## 
 
 ```{r, other-def, out.width = "50%", echo = F}
-woRkshoptools::include_picture("./xkcd_git.png")
+woRkshoptools::include_picture("./bw/xkcd_git.png")
 ```
 
 (Source: xkcd, https://xkcd.com/1597/, accessed on 2017-12-23)
@@ -214,7 +214,7 @@ file (see also next slide)
 See also http://phdcomics.com/comics.php?f=1531
 
 ```{r, out.width = "95%", echo = F}
-woRkshoptools::include_picture("./f_naming-horror.jpg")
+woRkshoptools::include_picture("./bw/f_naming-horror.jpg")
 ```
 
 ---
@@ -271,7 +271,7 @@ tool is `git` (e.g., in Windows it is `git.exe`).
 - Locally, a Git repository always has a `.git` folder.
 
 ```{r, out.width = "80%", echo = F}
-woRkshoptools::include_picture("./fig_git-dot-folder.png")
+woRkshoptools::include_picture("./bw/fig_git-dot-folder.png")
 ```
 
 ---
@@ -286,7 +286,7 @@ collaboratively
 - GitHub and GitLab also provide project management features
 
 ```{r, out.width = "90%", echo = F}
-woRkshoptools::include_picture("./f_github-screenshot.png")
+woRkshoptools::include_picture("./bw/f_github-screenshot.png")
 ```
 (Source: https://github.com/jobreu/reproducible-research-gesis-2023)
 
@@ -302,7 +302,7 @@ git --version
 ```
 
 ```{r, out.width = "100%", echo = F}
-woRkshoptools::include_picture("./fig_git-bash-version.png")
+woRkshoptools::include_picture("./bw/fig_git-bash-version.png")
 ```
 
 ---
@@ -333,7 +333,7 @@ repository.
 ### Visualization of a Git workflow
 
 ```{r, out.width = "85%", echo = F}
-woRkshoptools::include_picture("./fig_git-workflow-hahm.png")
+woRkshoptools::include_picture("./bw/fig_git-workflow-hahm.png")
 ```
 
 .small[(Source: https://teaching.dahahm.de/teaching/ss22/dissys/2022/05/31/git_workflow.html)]
@@ -474,7 +474,7 @@ your collaborators can be downloaded to your local repository (`git pull`)
 ### Visualization of a Git workflow
 
 ```{r, out.width = "85%", echo = F}
-woRkshoptools::include_picture("./fig_git-workflow-hahm.png")
+woRkshoptools::include_picture("./bw/fig_git-workflow-hahm.png")
 ```
 
 .small[(Source: https://teaching.dahahm.de/teaching/ss22/dissys/2022/05/31/git_workflow.html)]
@@ -600,7 +600,7 @@ files in the repository, a *two-step* procedure needs to be performed.
 ### Visualization of a Git workflow
 
 ```{r, out.width = "85%", echo = F}
-woRkshoptools::include_picture("./fig_git-workflow-hahm.png")
+woRkshoptools::include_picture("./bw/fig_git-workflow-hahm.png")
 ```
 
 .small[(Source: https://teaching.dahahm.de/teaching/ss22/dissys/2022/05/31/git_workflow.html)]
@@ -1023,7 +1023,7 @@ commits (and branches).
 (DAG).
 
 ```{r, out.width = "65%", echo = F}
-woRkshoptools::include_picture("./fig_git-dag.png")
+woRkshoptools::include_picture("./bw/fig_git-dag.png")
 ```
 
 .small[(Source: https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)]
@@ -1095,7 +1095,7 @@ git show
 Frankly, I go to GitHub or GitLab and check the respective differences between files...
 
 ```{r, out.width = "100%", echo = F}
-woRkshoptools::include_picture("./fig_git-diff.png")
+woRkshoptools::include_picture("./bw/fig_git-diff.png")
 ```
 
 ---
@@ -1130,7 +1130,7 @@ start working on a new version of the program using a file called
 ### Visualization of branches in Git 
 
 ```{r, out.width = "100%", echo = F}
-woRkshoptools::include_picture("./fig_branches1.png")
+woRkshoptools::include_picture("./bw/fig_branches1.png")
 ```
 
 .small[(Source: https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)]
@@ -1309,7 +1309,7 @@ There are two ways to establish a connection to a remote repository:
 - Here is an example using my workshop on "Meta-Analysis in Social Research", see https://github.com/berndweiss/dji-meta-analysis-2019
 
 ```{r, out.width = "90%", echo = F}
-woRkshoptools::include_picture("./f_github-clone.png")
+woRkshoptools::include_picture("./bw/f_github-clone.png")
 ```
 
 ---
