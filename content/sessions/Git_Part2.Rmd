@@ -32,7 +32,7 @@ While we introduce you to different tools for reproducible research in this work
 Lucky for us, the most popular Integrated Development Interfaces (IDE) for `R`, *RStudio*, also offers functionalities for using `Git`.<sup>1</sup>
 
 .small[
-[1] Another popular IDE that works nicely with `R` and `Git` is [*Visual Studio Code*](https://code.visualstudio.com/) - or *VSCode* for short - by *Microsoft*. *VSCode* offers an [extension for `R`](https://code.visualstudio.com/docs/languages/r) and also [works nicely with *GitHub*](https://vscode.github.com/)(which is not surprising, given that both are *Microsoft* products).
+[1] Another popular IDE that works nicely with `R` and `Git` is [*Visual Studio Code*](https://code.visualstudio.com/) - or *VSCode* for short - by *Microsoft*. *VSCode* offers an [extension for `R`](https://code.visualstudio.com/docs/languages/r) and also [works nicely with *GitHub*](https://vscode.github.com/) (which is not surprising, given that both are *Microsoft* products).
 ]
 
 ---
@@ -457,4 +457,4 @@ Another good introductory resource is the *RStudio*/*posit* How-To Article on [*
 
 class: center, middle
 
-# Advanced operations with `Git` and *GitHub*
+# *Next up*: Advanced operations with `Git` and *GitHub*
