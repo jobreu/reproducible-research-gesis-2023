@@ -643,13 +643,17 @@ absolute path is `J:\Work\PARI\PARI-F`
     - In R:
     ```r
     library(haven); library(ggplot2)
-    setwd("J:/Work/PARI/PARI-F")          # Define working directory just once.
-    read.dta("data/pari-f_data_v0-5.dta") # Absolute path: J:/Work/PARI/PARI-F/data/pari-f_data_v0-5.dta
+    # Define working directory just once.
+    setwd("J:/Work/PARI/PARI-F")           
+    
+    # Absolute path: J:/Work/PARI/PARI-F/data/pari-f_data_v0-5.dta
+    read.dta("data/pari-f_data_v0-5.dta") 
     ...
     ggplot(...)
-    ggsave("doc/my-fancy-plot.pdf")       # Will be saved in J:/Work/PARI/PARI-F/doc/my-fancy-plot.pdf
+    # Will be saved in J:/Work/PARI/PARI-F/doc/my-fancy-plot.pdf
+    ggsave("doc/my-fancy-plot.pdf")       
+                         
     ```
-
 ---
 
 
@@ -665,9 +669,9 @@ absolute path is `J:\Work\PARI\PARI-F`
 ---
 
 
-## Shortcuts (`.` and `..`) 
+## Shortcuts (`.` and `..` and `~`) 
 
-.small[See also https://en.wikipedia.org/wiki/Path_(computing)]
+.small[See also https://en.wikipedia.org/wiki/Path_(computing)
 
 - The dot `.` denotes the current working directory
 - The dot dot `..` denotes the parent directory, i.e., it points upwards in the
@@ -686,7 +690,7 @@ folder hierarchy
                                        # - Then, go to folder /doc and store the plot in this folder 
     ```
 - Finally, the tilde symbol `~` will bring you back to your home directory, e.g. `cd ~`
-
+]
 ---
 
 
