@@ -1,4 +1,4 @@
- %in% ---
+---
 title: "Workflows for Reproducible Research with R & Git"
 subtitle: "An introduction to Git"
 author: "Bernd Weiß"
@@ -8,11 +8,9 @@ toc: true
 editor_options: 
   chunk_output_type: console
 ---
+
 layout: true
 
-
-```{r, echo = FALSE}
-```
 
 
 

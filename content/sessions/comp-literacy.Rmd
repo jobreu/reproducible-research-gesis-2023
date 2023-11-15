@@ -25,9 +25,9 @@ layout: true
 .small[The script `create-project.sh` can be found in `./content/sh/` or, to be 
 more, precise: https://github.com/jobreu/reproducible-research-gesis-2023/tree/main/content/sh.
 
-Also, it is a bash script and need to be run in a Bash shell, e.g., Git Bash.]. 
+Also, it is a bash script and need to be run in a Bash shell, e.g., Git Bash.] 
 
-.small[<div>(Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>)</div>]
+.smaller[<div>(Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>)</div>]
 
 ---
 
@@ -148,27 +148,39 @@ class: center, middle
 
 - What is a "project"? 
 
-> "A series of tasks linked to a goal, with a deadline." -- [Tiego Forte](https://fortelabs.com/blog/para)
+> "A series of tasks linked to a goal, with a deadline." -- 
+[Tiego Forte](https://fortelabs.com/blog/para)
 
-- A research project can be writing a paper, giving a conference presentation or a lecture, ... 
+- A research project can be writing a paper, giving a conference presentation 
+or a lecture, ... 
 
-- Ideally, all information, materials, data, ..., should be located in a distinct project folder 
+- Ideally, all information, materials, data, ..., should be located in a 
+distinct project folder (also, see R projects, 
+https://r4ds.had.co.nz/workflow-projects.html)
 
-- That is, on your computer, everything you need to complete the project should be stored inside *one* folder (which, of course, can/should have multiple subfolders) -- "a project should be self-sufficient"
+- That is, on your computer, everything you need to complete the project should 
+be stored inside *one* folder (which, of course, can/should have multiple 
+subfolders) -- "a project should be self-sufficient"
 
 ---
 
 
 ## A project's folder structure
 
-- Be consistent!
-- A uniform folder structure helps to find items in older projects
-- Choose a structure and naming convention that fit your working style
-- Generally, folder and file names should consist of the letters **a-z**, the number **0-9**, underscores, **and should never include a blank space**
-- I also use hyphens "`-`" sometimes, e.g., `mail_weiss-bernd.pdf`, then, the underscore is used to separate semantically different parts (e.g., `ps2021-03_gesis-panel-meet-the-expert`, `ps2020-11_utrecht_bigsurv20`)
-- Furthermore, it is advisable to never use capital letters, as this will increase the likelihood of being inconsistent
-- Folder and file names should be as short as possible, but as long as necessary to bring across the gist of its function/content
+.small[
+- Be consistent! That is, a uniform folder structure helps to find items in 
+older projects
 
+- Choose a structure and naming convention that fit your working style
+
+- Generally, folder and file names should consist of the letters **a-z**, the number **0-9**, underscores, **and should never include a blank space**
+
+- I also use hyphens "`-`" sometimes, e.g., `mail_weiss-bernd.pdf`, then, the underscore is used to separate semantically different parts (e.g., `ps2021-03_gesis-panel-meet-the-expert`, `ps2020-11_utrecht_bigsurv20`)
+
+- Furthermore, it is advisable to never use capital letters, as this will increase the likelihood of being inconsistent
+
+- Folder and file names should be as short as possible, but as long as necessary to bring across the gist of its function/content
+]
 ---
 
 
@@ -250,7 +262,7 @@ your knowledge and prowess with R.]
 ---
 
 
-## More suggestions to structure a data analysis project
+## More suggestions to structure <br>a data analysis project
 
 - [Structure Your Data Science
 Projects](https://towardsdatascience.com/structure-your-data-science-projects-6c6c8653c16a)
@@ -383,6 +395,7 @@ on your colleague's computer, your next computer,  a remote server?
 
 ## Examples of a folder/file path
 
+.small[
 - MS Windows: Folder path to my former workshop materials
 `E:\syncwork\projects\confer\ps2021-10-ws-repro-research`
 
@@ -397,7 +410,7 @@ on your colleague's computer, your next computer,  a remote server?
 below...)
 
 (Note, these are all examples of *absolute path* specifications)
-
+]
 ---
 
 
@@ -639,9 +652,18 @@ absolute path is `J:\Work\PARI\PARI-F`
 |-- pari-f.stpr
 `-- report
 ```
-- Loading a dataset located in folder `data`, can be accomplished as follows:
+
+---
+
+
+
+## 
+
+Loading a dataset located in folder `data`, can be accomplished as follows:
+
     - In R:
-    ```r
+    
+```{r eval = FALSE}
     library(haven); library(ggplot2)
     # Define working directory just once.
     setwd("J:/Work/PARI/PARI-F")           
@@ -652,8 +674,8 @@ absolute path is `J:\Work\PARI\PARI-F`
     ggplot(...)
     # Will be saved in J:/Work/PARI/PARI-F/doc/my-fancy-plot.pdf
     ggsave("doc/my-fancy-plot.pdf")       
-                         
-    ```
+```
+
 ---
 
 
@@ -843,12 +865,11 @@ woRkshoptools::include_picture("./bw/f_git-bash.png")
 ---
 
 
-## A small script to create a project folder
+## A small script to create<br> a project folder
 
-The following small bash/shell script was
-introduced in the very beginning of this module. It initializes a new project
-folder. It even detects when you forget to submit a folder name for your
-project (can be found here: `\content\sh\`):
+.small[The following small bash/shell script was introduced in the very beginning of 
+this module. It initializes a new project folder. It even detects when you 
+forget to submit a folder name for your project (can be found here: `\content\sh\`):]
 
 ```
 #!/bin/sh
@@ -857,12 +878,13 @@ project (can be found here: `\content\sh\`):
 # https://stackoverflow.com/questions/6482377/check-existence-of-input-argument-in-a-bash-shell-script
 if [ $# -eq 0 ]
   then
-    echo "No arguments supplied! You stupid!!!!!!"
+    echo "Please provide a valid path for the project."
     exit 1
 fi
 
 mkdir $1
 cd $1
+#git init
 mkdir data
 mkdir src
 mkdir output
@@ -872,8 +894,11 @@ touch README
 
 ---
 
-### Exercise
 
+
+### (!) Exercise
+
+.small[
 - Start the Git Bash
 
 - List the content of the current folder via `ls -la`
@@ -882,11 +907,17 @@ touch README
 
 - Go to the parent folder via `cd <your input>`
 
-- Copy the content from my small script (see above, section [](cli:create-project), use the little copy-icon in the top-right corner) and past it into a text file, save the text file as `create-project.sh`
+- Copy the content from my small script (see also  https://github.com/jobreu/reproducible-research-gesis-2023/blob/main/content/sh/create-project.sh), 
+use the little copy-icon in the top-right corner) and past it into a text file, save the text file as `create-project.sh`
+
+- The Bash script `create-project.sh` must reside in the same folder where it 
+will be executed (or place it in a folder that is listed in PATH)
 
 - Execute the script `./create-project.sh` (the `./` is important, for an explanation see [here](https://stackoverflow.com/questions/6331075/why-do-you-need-dot-slash-before-executable-or-script-name-to-run-it-in-bas)) without a folder name
 
 - Execute the script `./create-project.sh <your-new-project>` with a folder name as argument
+]
+
 
 ---
 
