@@ -298,7 +298,7 @@ woRkshoptools::include_picture("./bw/f_github-screenshot.png")
 ---
 
 
-### (!) The Git Bash
+### (!) Exercise: The Git Bash
 
 Test your Git installation. Start the Git Bash and type in `git --version`:
 
@@ -341,7 +341,7 @@ repository.
 woRkshoptools::include_picture("./bw/fig_git-workflow-hahm.png")
 ```
 
-.small[(Source: https://teaching.dahahm.de/teaching/ss22/dissys/2022/05/31/git_workflow.html)]
+.smaller[(Source: https://teaching.dahahm.de/teaching/ss22/dissys/2022/05/31/git_workflow.html)]
 
 ---
 
@@ -482,7 +482,7 @@ your collaborators can be downloaded to your local repository (`git pull`)
 woRkshoptools::include_picture("./bw/fig_git-workflow-hahm.png")
 ```
 
-.small[(Source: https://teaching.dahahm.de/teaching/ss22/dissys/2022/05/31/git_workflow.html)]
+.smaller[(Source: https://teaching.dahahm.de/teaching/ss22/dissys/2022/05/31/git_workflow.html)]
 
 ---
 
@@ -587,7 +587,7 @@ convention, though, is "main")]
 
 
     
-### Step 2: Adding files to a git repository: `git add` and `git commit`
+### Step 2: Adding files to a git repository:<br> `git add` and `git commit`
 
 Now it is time for some file action by adding (a) file(s) to our repository. 
 
@@ -608,7 +608,7 @@ files in the repository, a *two-step* procedure needs to be performed.
 woRkshoptools::include_picture("./bw/fig_git-workflow-hahm.png")
 ```
 
-.small[(Source: https://teaching.dahahm.de/teaching/ss22/dissys/2022/05/31/git_workflow.html)]
+.smaller[(Source: https://teaching.dahahm.de/teaching/ss22/dissys/2022/05/31/git_workflow.html)]
 
 ---
 
@@ -726,8 +726,9 @@ numbers, `git` can identify changes in a file.]
 
 
 
-### Security -- Some things do NOT belong in your Git repo
+### Security -- Some things do NOT<br> belong in your Git repo
 
+.small[
 - Be extremely careful including sensitive information (e.g., personal data, passwords, access tokens) into a (public) GitHub repository. There are people out there who search for these things... see also https://docs.github.com/en/code-security/secret-scanning
 
 - Use a `.gitignore` file to exclude sensitive files/folders
@@ -745,7 +746,7 @@ data/
 ```
 
 - For more information, see https://git-scm.com/docs/gitignore
-
+]
 ---
 
 
@@ -1097,6 +1098,12 @@ cd e:/tmp
 git clone https://github.com/berndweiss/dji-meta-analysis-2019.git
 ```
 
+---
+
+
+
+### 
+
 ```{sh}
 cd e:/tmp
 ls -la
@@ -1319,7 +1326,7 @@ another example is this one:
 woRkshoptools::include_picture("./bw/fig_git-workflow-hahm.png")
 ```
 
-.small[(Source: https://teaching.dahahm.de/teaching/ss22/dissys/2022/05/31/git_workflow.html)]
+.smaller[(Source: https://teaching.dahahm.de/teaching/ss22/dissys/2022/05/31/git_workflow.html)]
 
 ---
 
