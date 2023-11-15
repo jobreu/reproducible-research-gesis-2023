@@ -411,7 +411,7 @@ well-defined format, created to add specific functionality" [1]
 ---
 
 
-## Is one system library a good idea?
+## Is one R system library a good idea?
 
 However, having *one* central system library is really bad, especially when 
 things break -- and things will break! ("dependency hell")
@@ -429,7 +429,7 @@ include_graphics("https://imgs.xkcd.com/comics/dependency.png")
 ## renv offers "project libraries"
 
 - Instead of using *one* central system library for all installed R packages, 
-renv introduces "project libraries"
+renv sets up a "project library", i.e., each R project has its own library
 
 - Project libraries means that each project has its own independent 
 collection of packages
@@ -549,6 +549,11 @@ So what? Use `install.packages()` or `renv::install()`
 Use `renv::update()`...
 
 ---
+
+
+
+
+
 
 
 
