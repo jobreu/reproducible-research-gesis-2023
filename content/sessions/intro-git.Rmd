@@ -1,4 +1,4 @@
----
+ %in% ---
 title: "Workflows for Reproducible Research with R & Git"
 subtitle: "An introduction to Git"
 author: "Bernd Weiß"

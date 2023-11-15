@@ -31,7 +31,8 @@ Different versions of `R` packages may depend on different versions of `R` and d
 ## Dependencies in `R`
 
 ```{r dep-graph, out.width = "70%", echo = F}
-plot_dependency_graph("C:/Users/breuerjs/AppData/Local/R/win-library/4.3/usethis")
+# plot_dependency_graph("C:/Users/breuerjs/AppData/Local/R/win-library/4.3/usethis")
+plot_dependency_graph(file.path(.libPaths(), "usethis"))
 ```
 
 ---
@@ -324,12 +325,265 @@ class: center, middle
 
 ---
 
+
+
 class: center, middle
 
 # More comprehensive dependency management options in `R`
 
 ---
 
-## `groundhog` vs. `renv`
 
-See: https://groundhogr.com/renv/
+
+## `renv` and its advantages<br> compared to `groundhog`
+
+Let's talk about another option: `renv`
+
+- `renv` is integrated with R Studio
+
+- `renv` is developed by professional software engineers (rather than academic researchers)
+
+- `renv` works with more repositories than does groundhog 
+
+For more information on groundhog vs. renv, see: https://groundhogr.com/renv/
+
+---
+
+
+
+## What is `renv`?
+
+The package `renv` helps to create reproducible environments for *R projects*
+
+---
+
+
+
+## What is an R project?
+
+> "R experts keep all the files associated with a project together — input data, 
+> R scripts, analytical results, figures. This is such a wise and common 
+> practice that RStudio has built-in support for this via projects." 
+
+.small[Source: https://r4ds.had.co.nz/workflow-projects.html]
+
+---
+
+
+
+## Why?
+
+Use renv to make your R projects more isolated, portable and reproducible.
+
+- Isolated: Installing a new or updated package for one project won’t break 
+your other projects, and vice versa. That’s because renv gives each project its 
+own private library.
+
+- Portable: Easily transport your projects from one computer to another, even 
+across different platforms. renv makes it easy to install the packages your 
+project depends on.
+
+- Reproducible: renv records the exact package versions you depend on, and 
+ensures those exact versions are the ones that get installed wherever you go.
+
+.small[Source: https://rstudio.github.io/renv/]
+
+---
+
+
+
+## Let's talk about libraries<br> (and packages)
+
+- When talking about a "reproducible R environment", this mostly refers to all
+the R packages that are being used
+
+- Most of us have *one* "system library", where all installed R packages can be 
+found (mine can be found here: `r .libPaths()`)
+
+- "The directories in R where the packages are stored are called the libraries" [1] 
+
+- "Packages are collections of R functions, data, and compiled code in a 
+well-defined format, created to add specific functionality" [1]
+
+
+.small[[1] https://hbctraining.github.io/Intro-to-R-flipped/lessons/04_introR_packages.html]
+
+---
+
+
+## Is one system library a good idea?
+
+However, having *one* central system library is really bad, especially when 
+things break -- and things will break! ("dependency hell")
+
+```{r xkcd-dep2, out.width = "38%" ,echo = F}
+include_graphics("https://imgs.xkcd.com/comics/dependency.png")
+```
+
+<small><small>https://xkcd.com/2347/</small></small>
+
+---
+
+
+
+## renv offers "project libraries"
+
+- Instead of using *one* central system library for all installed R packages, 
+renv introduces "project libraries"
+
+- Project libraries means that each project has its own independent 
+collection of packages
+
+---
+
+
+
+## Where all the R packages grow... repositories
+
+- The usual ways to install an R package is to download the package from an 
+repository
+
+- Most famous is CRAN, the Comprehensive R Archive Network (other sources 
+include Bioconductor or GitHub)
+
+- I am currently using:
+
+```{r}
+getOption("repos")
+```
+
+---
+
+
+
+## renv and repositories
+
+- renv creates a R project-related library and installs packages into that 
+specific library
+
+- Hence, it needs to know where (a) package(s) can be found; not all packages
+can be found on CRAN
+
+---
+
+
+
+
+## How does renv work?
+
+- It is assumed that your work is based on the model of an "R project" 
+(in RStudio)
+
+- Similar to Git, you first have to initialize your R project, letting `renv` 
+know that it should take care of all things that are related to a reproducible 
+R environment
+
+- At some moment in time, when everything is working fine, and you want to 
+preserve this state of your R project, you can take an R-related "snapshot" of 
+your project
+
+- This snapshot can be shared with others or your future self, guaranteeing that 
+you can always restore this moment in time when everything in your R project was 
+working well (meaning: in terms of "reproducible R environment") 
+
+---
+
+
+
+## Workflow in `renv`
+
+```{r renvimg, out.width = "100%" ,echo = F}
+woRkshoptools::include_picture("./bw/fig_renv.png")
+```
+
+---
+
+
+## `renv::init()`
+
+- `renv::init()` is run once and adds a few new directories and files to your R 
+project
+
+- `renv/library`: This directory is the project library that contains all 
+packages currently used by your project
+
+- `renv.lock`: Records metadata about every package ensuring that it can be 
+re-installed on a new machine
+
+- `.Rprofile`: Runs automatically every time you start R (in that project), 
+renv uses this file to configure your R session to use the project library
+
+.small[Source: https://rstudio.github.io/renv/articles/renv.html#getting-started]
+
+---
+
+
+
+## `renv::snapshot()` and `renv::restore()`
+
+- Running `renv::snapshot()` updates `renv.lock` and documents the current
+collection (and their specific versions) of R packages that are being used in 
+your R project
+
+- To share an R project, you need to provide access to `renv.lock`, `.Rprofile`, 
+`renv/settings.json` and `renv/activate.R` -- or, from a Git perspective, that's 
+all you need to commit into your Git repository
+
+- Next, using `renv::restore()` a collaborator can exactly reproduce (download 
+and install specific R packages) your R environment
+
+---
+
+
+
+## Installing additional R packages
+
+So what? Use `install.packages()` or `renv::install()`
+
+---
+
+
+
+## Updating R packages in your R project
+
+Use `renv::update()`...
+
+---
+
+
+
+
+class: center, middle
+
+# More options for dependency management in `R`
+
+---
+
+
+## And then there is `rang`
+
+> "The goal of rang (Reconstructing Ancient Number-crunching Gears) is to 
+> obtain the dependency graph of R packages at a specific time point.
+
+> Although this package can also be used to ensure the **current R computational 
+> environment** can be reconstructed by future researchers, this package gears 
+> towards **reconstructing historical R computational environments** which have not 
+> been completely declared. For the former purpose, **packages such as renv, 
+> groundhog, miniCRAN, and Require should be used**. One can think of rang as an 
+> archaeological tool" (emphasis added).
+
+.small[Source: https://github.com/gesistsa/rang]
+
+---
+
+
+
+## And then there is `rang` (cont.)
+
+For more information, see:
+
+- https://chainsawriot.github.io/gesis2023_rang/#/title-slide
+
+- https://github.com/gesistsa/rang
+
+---
