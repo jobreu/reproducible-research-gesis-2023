@@ -55,7 +55,7 @@ Participants should have some basic knowledge of `R` and *RStudio* (e.g., instal
 | 13:00 - 14:30 | Build your own Binder | [HTML](https://jobreu.github.io/reproducible-research-gesis-2022/slides/Sharing_publishing.html), [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2022/main/slides/Sharing_publishing.pdf) | - | - |
 | 14:30 - 14:45 | *Coffee Break* | - | - | - |
 | 14:45 - 16:00 | Saving computational environments | [HTML](https://jobreu.github.io/reproducible-research-gesis-2022/slides/intro-collab-github.html), [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2022/main/slides/intro-collab-github.pdf) | see slides | - |
-| 16:00 - 17:00 | Recap & Outlook | [HTML](https://jobreu.github.io/reproducible-research-gesis-2023/slides/Recap_outlook.html), [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2023/main/slides/Recap_outlook.pdf) | - | - |
+| 16:00 - 17:00 | Recap & Outlook | [HTML](https://jobreu.github.io/reproducible-research-gesis-2023/slides/Recap_Outlook.html), [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2023/main/slides/Recap_Outlook.pdf) | - | - |
 
 ## Acknowledgments
 
