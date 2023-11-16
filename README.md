@@ -50,9 +50,9 @@ Participants should have some basic knowledge of `R` and *RStudio* (e.g., instal
 | 09:00 - 09:30 | Recap Day 1 | [HTML](https://jobreu.github.io/reproducible-research-gesis-2023/slides/Recap_Day1.html), [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2023/main/slides/Recap_Day1.pdf) | - | - |
 | 09:30 - 11:00 | Dependency management | [HTML](https://jobreu.github.io/reproducible-research-gesis-2023/slides/Dependency_Management.html), [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2023/main/slides/Dependency_Management.pdf) | [HTML](https://jobreu.github.io/reproducible-research-gesis-2023/exercises/Exercise_Dependency_Management.html) | [HTML](https://jobreu.github.io/reproducible-research-gesis-2023/solutions/Exercise_Dependency_Management.html) |
 | 11:00 - 11:15 | *Coffee Break* | - | - | - |
-| 11:15 - 12:00 | Binder & Notebooks | - | [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2023/main/slides/jupyter-binder.pdf) | - |
+| 11:15 - 12:00 | Binder & Notebooks | [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2023/main/slides/jupyter-binder.pdf) | see slides | - |
 | 12:00 - 13:00 | *Lunch Break* | - | - | - |
-| 13:00 - 14:30 | Build your own Binder | [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2023/main/slides/jupyter-binder_exercise.pdf) | - | - |
+| 13:00 - 14:30 | Build your own Binder | [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2023/main/slides/jupyter-binder_exercise.pdf) | see slides | - |
 | 14:30 - 14:45 | *Coffee Break* | - | - | - |
 | 14:45 - 16:00 | Saving computational environments | [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2023/main/slides/environments.pdf) | [Project](https://github.com/arnim/rocker-demo2023) | - |
 | 16:00 - 17:00 | Recap & Outlook | [HTML](https://jobreu.github.io/reproducible-research-gesis-2023/slides/Recap_Outlook.html), [PDF](https://raw.githubusercontent.com/jobreu/reproducible-research-gesis-2023/main/slides/Recap_Outlook.pdf) | - | - |
