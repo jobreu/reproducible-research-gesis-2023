@@ -40,7 +40,7 @@ class: center, middle
 
 ---
 
-## Computer literacy as a barrier to reproducibility
+## Computer literacy as a barrier<br> to reproducibility
 
 - There exists multiple barriers to reproducibility
 
@@ -175,7 +175,9 @@ older projects
 
 - Generally, folder and file names should consist of the letters **a-z**, the number **0-9**, underscores, **and should never include a blank space**
 
-- I also use hyphens "`-`" sometimes, e.g., `mail_weiss-bernd.pdf`, then, the underscore is used to separate semantically different parts (e.g., `ps2021-03_gesis-panel-meet-the-expert`, `ps2020-11_utrecht_bigsurv20`)
+- I also use hyphens "`-`", e.g., `mail_weiss-bernd.pdf`, then, the underscore is used to separate semantically different parts, some examples:
+  - `ps2021-03_gesis-panel_meet-the-expert`
+  - `ps2020-11_utrecht_bigsurv20`
 
 - Furthermore, it is advisable to never use capital letters, as this will increase the likelihood of being inconsistent
 
@@ -397,19 +399,21 @@ on your colleague's computer, your next computer,  a remote server?
 
 .small[
 - MS Windows: Folder path to my former workshop materials
-`E:\syncwork\projects\confer\ps2021-10-ws-repro-research`
+`E:\syncwork\projects\confer\ps2021-10-ws-repro-research`<br>
+These days: `O:\projects\confer\reproducible-research-gesis-2023`
 
 - Linux (MSYS2): Folder path to my workshop materials
 `/E/syncwork/projects/confer/ps2021-10-ws-repro-research`
 
-- Full file path specified in Stata to load a dataset (MS Windows): `use
+- Full file path specified in Stata to load a dataset (MS Windows):<br> `use
 "J:\Work\PARI\PARI-F\data\pari-f_data_v0-1.dta"`
 
 - Full file path specified in R to load a dataset (MS Windows):
 `read.dta("J:/Work/PARI/PARI-F/data/pari-f_data_v0-1.dta")` (confusing? see
 below...)
 
-(Note, these are all examples of *absolute path* specifications)
+(Note, these are all examples of *absolute path* specifications)<br>
+(By the way: PARI refers to this research project: https://www.uni-muenster.de/Psychologie/forschung/pari/index.html)
 ]
 ---
 
@@ -489,7 +493,7 @@ pathlib.Path().resolve()
 
 ## 
 
-- Two solutions:
+- Two solutions (actually, three):
     - Use the slash character `/`, e.g.:   
     ```R
     library(haven)
@@ -718,7 +722,7 @@ folder hierarchy
 
 class: center, middle
 
-# Using a comand-line interface (CLI)
+# Using a comand-line<br> interface (CLI)
 
 ---
 
@@ -750,7 +754,7 @@ woRkshoptools::include_picture("./bw/f_cli-shell.png")
 ---
 
 
-## What is a command-line interface (CLI)? 
+## What is a command-line<br> interface (CLI)? 
 
 > "A command-line interface (CLI) **processes commands** to a computer program
 in the form of **lines of text**. The program which handles the interface is
@@ -770,16 +774,29 @@ systems including DOS, CP/M and Apple DOS."
 
 > "In computing, a shell is a computer program which exposes an operating
 system's services to a human user or other program. In general, operating system
-shells use either a command-line interface (CLI) or graphical user interface
+shells use either a *command-line interface (CLI)* or graphical user interface
 (GUI), depending on a computer's role and particular operation. It is named a
 shell because it is the outermost layer around the operating system."
 
-(https://en.wikipedia.org/wiki/Shell_(computing))
+(emphasis mine; https://en.wikipedia.org/wiki/Shell_(computing))
 
 ---
 
 
+
+## (!) Exercise: Find CLIs on<br> your computer
+
+Can you find and start one or more CLIs / shells on your computer?
+
+
+.smaller[Tip: Git has a shell...]
+---
+
+
+
 ## Okay, but why?!
+
+.small[
 
 - Fast and effcient way to interact with your computer
 
@@ -793,13 +810,8 @@ Reproducibility"
 (Git, pandoc, $\LaTeX$, ...) -- it might be helpful to understand what is
 happening under the hood
 
----
-
-
-## 
-
 - Accessing a remote server almost always requires some sort of command line
-skills
+skills (ssh, scp, ...)
 
 - ...
 
@@ -808,7 +820,7 @@ skills
 .small[I also recommend "Top ten reasons to learn to use the command line:
 Expanding your reproducibility tools", see
 https://riffomonas.org/code_club/2020-08-17-command-line-life]
-
+]
 ---
 
 
@@ -822,7 +834,7 @@ https://riffomonas.org/code_club/2020-08-17-command-line-life]
 
 ## The Git Bash
 
-- My CLI of choice is [the Bash](https://www.gnu.org/software/bash/)
+- My CLI of choice (for this workshop) is [the Bash](https://www.gnu.org/software/bash/)
 
 - Linux/macOS user already have access to the Bash
 
@@ -960,6 +972,8 @@ Science](https://plain-text.co/) by Kieran Healy]
 
 ---
 
+
+
 ## 
 
 - Notepad++ is my my tool of choice...
@@ -970,8 +984,19 @@ Science](https://plain-text.co/) by Kieran Healy]
 file references.bib
 ```
     references.bib: Unicode text, UTF-8 text, with very long lines (1869)
-    
+  
 ---
+
+
+
+## Encoding in RStudio
+
+```{r, out.width = "75%", echo = F}
+woRkshoptools::include_picture("./bw/fig_rstudio-encoding.png")
+```
+
+---
+
 
 
 ## The power of regular expressions
