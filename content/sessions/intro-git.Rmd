@@ -185,10 +185,6 @@ it is highly recommended that you have a basic knowledge of how to use the CLI
 - Once you mastered using Git at the command line, using a GUI is a peace of
 cake 
 
-.small[Since most of you are working on a MS Windows PC, it is also a good idea to know
-the meaning of the `PATH` variable (what it is used for, how to access it and
-how to modify it).]
-
 ---
 
 
@@ -271,7 +267,7 @@ class: center, middle
 - "Git" is the name of the software, and the actual command-line
 tool is `git` (e.g., in Windows it is `git.exe`).
 
-- A *Git repository* is a folder that is under "Git's version control"
+- A (local) *Git repository* is a folder that is under "Git's version control"
 
 - Locally, a Git repository always has a `.git` folder.
 
@@ -300,7 +296,7 @@ woRkshoptools::include_picture("./bw/f_github-screenshot.png")
 
 ### (!) Exercise: The Git Bash
 
-Test your Git installation. Start the Git Bash and type in `git --version`:
+Test your Git installation. Start the Git Bash and type in<br> `git --version`:
 
 ```{sh}
 git --version
@@ -824,171 +820,6 @@ https://subscription.packtpub.com/book/application-development/9781782168454/1/c
 
 
 
-
-class: center, middle
-## Local branches 
-
----
-
-
-### Branching (local)
-
-- In addition to providing a powerful undo function, Git also allows to "toy
-around" with different (parallel) "versions" of your text or code
-
-- Let's assume that you wrote a first draft of an R script.
-Everything works as expected. From a programming perspective, though, the
-script is just ugly and it is therefore quite hard to add additional
-features
-
-- What I used to do was: save my original file as `my-great-program.R` and
-start working on a new version of the program using a file called
-`my-great-program_new.R`
-
-- This is not necessary with `git branch`
-
----
-
-
-
-### Visualization of branches in Git 
-
-```{r, out.width = "100%", echo = F}
-woRkshoptools::include_picture("./bw/fig_branches1.png")
-```
-
-.small[(Source: https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)]
-
----
-
-
-
-### Example of a (local) branch I
-
-Let's start with a list of files that are currently in my project folder:
-
-```{sh}
-cd e:/tmp/git_test_folder
-ls -la
-```
-
-```{sh}
-cd e:/tmp/git_test_folder
-git status
-```
-
----
-
-
-### Example of a (local) branch II
-
-What branches are available? Once we have more than one branch, the asterisk `*`
-shows which branch is active (or: in which branch we are in)
-
-
-```{sh}
-cd e:/tmp/git_test_folder
-git branch
-```
-
-Create a new branch called `testing`
-
-```{sh}
-cd e:/tmp/git_test_folder
-git branch testing
-```
-
-
-```{sh}
-cd e:/tmp/git_test_folder
-git branch
-```
-
----
-
-
-### Example of a (local) branch III
-
-How do we get into the `testing` branch? Use `git checkout testing`
-
-```{sh}
-cd e:/tmp/git_test_folder
-git checkout testing
-git branch
-```
-
----
-
-
-### Example of a (local) branch IV
-
-Create a new file `testingfile`
-
-```{sh}
-cd e:/tmp/git_test_folder
-touch testingfile
-echo "in testing" > testingfile
-ls -la
-```
-
----
-
-
-### Example of a (local) branch V
-
-```{sh}
-cd e:/tmp/git_test_folder
-cat testingfile
-```
-
-```{sh}
-cd e:/tmp/git_test_folder
-git add testingfile
-git commit -m "new branch testing"
-```
-
----
-
-
-### Example of a (local) branch VI
-
-Switch back to branch `main` (and `cat testingfile` should result in an error
-message, since there is no `testingfile` in branch `main`)
-
-
-```{sh}
-cd e:/tmp/git_test_folder
-git checkout main
-ls -la
-```
-
----
-
-
-### Example of a (local) branch VII
-
-Now, we can use `merge` to combine `main` and `testing`
-
-```{sh}
-cd e:/tmp/git_test_folder
-git merge testing
-```
-
-```{sh, echo = FALSE}
-cd e:/tmp/git_test_folder
-ls -la
-```
-
-
-```{sh}
-cd e:/tmp/git_test_folder
-cat testingfile
-```
-
----
-
-
-
 class: center, middle
 ## GitHub
 
@@ -1127,17 +958,6 @@ backup or collaborative work) on a remote server, you need to authenticate
 yourself to the server
 
 - There are two ways of authentication: HTTPS or SSH
-
----
-
-
-### Choose a remote server
-
-- GitHub (which will be using)
-
-- GitLab
-
-- ...
 
 ---
 
@@ -1379,6 +1199,172 @@ class: center, middle
 
 
 class: center, middle
+## Local branches 
+
+---
+
+
+### Branching (local)
+
+- In addition to providing a powerful undo function, Git also allows to "toy
+around" with different (parallel) "versions" of your text or code
+
+- Let's assume that you wrote a first draft of an R script.
+Everything works as expected. From a programming perspective, though, the
+script is just ugly and it is therefore quite hard to add additional
+features
+
+- What I used to do was: save my original file as `my-great-program.R` and
+start working on a new version of the program using a file called
+`my-great-program_new.R`
+
+- This is not necessary with `git branch`
+
+---
+
+
+
+### Visualization of branches in Git 
+
+```{r, out.width = "100%", echo = F}
+woRkshoptools::include_picture("./bw/fig_branches1.png")
+```
+
+.small[(Source: https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)]
+
+---
+
+
+
+### Example of a (local) branch I
+
+Let's start with a list of files that are currently in my project folder:
+
+```{sh}
+cd e:/tmp/git_test_folder
+ls -la
+```
+
+```{sh}
+cd e:/tmp/git_test_folder
+git status
+```
+
+---
+
+
+### Example of a (local) branch II
+
+What branches are available? Once we have more than one branch, the asterisk `*`
+shows which branch is active (or: in which branch we are in)
+
+
+```{sh}
+cd e:/tmp/git_test_folder
+git branch
+```
+
+Create a new branch called `testing`
+
+```{sh}
+cd e:/tmp/git_test_folder
+git branch testing
+```
+
+
+```{sh}
+cd e:/tmp/git_test_folder
+git branch
+```
+
+---
+
+
+### Example of a (local) branch III
+
+How do we get into the `testing` branch? Use `git checkout testing`
+
+```{sh}
+cd e:/tmp/git_test_folder
+git checkout testing
+git branch
+```
+
+---
+
+
+### Example of a (local) branch IV
+
+Create a new file `testingfile`
+
+```{sh}
+cd e:/tmp/git_test_folder
+touch testingfile
+echo "in testing" > testingfile
+ls -la
+```
+
+---
+
+
+### Example of a (local) branch V
+
+```{sh}
+cd e:/tmp/git_test_folder
+cat testingfile
+```
+
+```{sh}
+cd e:/tmp/git_test_folder
+git add testingfile
+git commit -m "new branch testing"
+```
+
+---
+
+
+### Example of a (local) branch VI
+
+Switch back to branch `main` (and `cat testingfile` should result in an error
+message, since there is no `testingfile` in branch `main`)
+
+
+```{sh}
+cd e:/tmp/git_test_folder
+git checkout main
+ls -la
+```
+
+---
+
+
+### Example of a (local) branch VII
+
+Now, we can use `merge` to combine `main` and `testing`
+
+```{sh}
+cd e:/tmp/git_test_folder
+git merge testing
+```
+
+```{sh, echo = FALSE}
+cd e:/tmp/git_test_folder
+ls -la
+```
+
+
+```{sh}
+cd e:/tmp/git_test_folder
+cat testingfile
+```
+
+---
+
+
+
+
+
+class: center, middle
 ## Moving back in time
 
 ---
@@ -1600,6 +1586,7 @@ cd e:/tmp/git_test_folder
 git log --oneline
 ```
 
+---
 
 
 ### git reset
@@ -1805,6 +1792,28 @@ woRkshoptools::include_picture("./bw/f_merge-conf-resolved.png")
 ```
 
 ---
+
+
+### (!) Exercise: Create a merge conflict with yourself
+.small[
+- Create a local Git repo and add a simple text file, e.g., via<br> 
+`echo "123456" > test.txt`
+
+- Create a new repo on GitHub, copy `git remote add ...` and add remote branch
+
+- Commit everything locally, and push it to Github
+
+- Now comes the fun part:
+  - Edit the file on GitHub and commit
+  - Edit the file in your local Git repo and commit all changes
+  - Do a `git pull origin main`
+  
+- If everything went, uh, well, then you should see the following error 
+messsage:<br>
+`Automatic merge failed; fix conflicts and then commit the result.`  
+]
+---
+
 
 
 
