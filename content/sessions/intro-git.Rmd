@@ -657,7 +657,7 @@ The second step is to run the command
 `git commit -m "add function to compute tau^2"`. 
 
 Since this is my first commit, I always apply the following commit
-message: `git commit -m "initial commit`.
+message: `git commit -m "initial commit"`.
 
 ---
 
