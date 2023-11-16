@@ -392,11 +392,11 @@ ensures those exact versions are the ones that get installed wherever you go.
 
 ## Let's talk about libraries<br> (and packages)
 
-- When talking about a "reproducible R environment", this mostly refers to all
-the R packages that are being used
+- When talking about a "reproducible R environment", this mostly (excluding R 
+itself) refers to all the R packages that are being used
 
-- Most of us have *one* "system library", where all installed R packages can be 
-found (for example: `r .libPaths()[2]`)
+- Most of us have *one* "system library" for R packages, where all installed 
+packages can be found (for example: `r .libPaths()[2]`)
 
 - "The directories in R where the packages are stored are called the libraries" [1] 
 
@@ -408,8 +408,8 @@ found (for example: `r .libPaths()[2]`)
 
 ## Is one R system library a good idea?
 
-However, having *one* central system library may be a bad idea, especially when 
-things break -- and things will break! ("dependency hell")
+However, having *one* central system library for R packages may be a bad idea, 
+especially when things break -- and things will break! ("dependency hell")
 
 ```{r xkcd-dep2, out.width = "38%" ,echo = F}
 include_graphics("https://imgs.xkcd.com/comics/dependency.png")
@@ -427,13 +427,14 @@ include_graphics("https://imgs.xkcd.com/comics/dependency.png")
 `renv` sets up a "project library", i.e., each `R` project has its own library
 
 - Project libraries means that each project has its own independent 
-collection of packages
+collection of R packages, i.e., multiple projects can have the same R package 
+but, e.g., different versions of it
 
 ---
 
 
 
-## Where all the `R` packages grow... repositories
+## Where all the `R` packages<br> grow... repositories
 
 - The usual ways to install an `R` package is to download the package from an 
 repository
@@ -453,7 +454,7 @@ getOption("repos")
 
 ## renv and repositories
 
-- `renv` creates a `R` project-related library and installs packages into that 
+- `renv` creates an `R` project-related library and installs packages into that 
 specific library
 
 - Hence, it needs to know where (a) package(s) can be found; not all packages
@@ -511,6 +512,17 @@ renv uses this file to configure your `R` session to use the project library
 .small[Source: https://rstudio.github.io/renv/articles/renv.html#getting-started]
 
 ---
+
+
+## renv in RStudio
+
+```{r renv-rstudio, out.width = "75%" ,echo = F}
+woRkshoptools::include_picture("./bw/fig_renv-rstudio.png")
+```
+
+---
+
+
 
 
 
