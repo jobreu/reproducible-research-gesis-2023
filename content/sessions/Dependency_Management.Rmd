@@ -396,7 +396,7 @@ ensures those exact versions are the ones that get installed wherever you go.
 itself) refers to all the R packages that are being used
 
 - Most of us have *one* "system library" for R packages, where all installed 
-packages can be found (for example: `r .libPaths()[2]`)
+packages can be found (for example: `D:/Programme/R/library`)
 
 - "The directories in R where the packages are stored are called the libraries" [1] 
 
@@ -506,8 +506,9 @@ packages currently used by your project
 - `renv.lock`: Records metadata about every package ensuring that it can be 
 re-installed on a new machine
 
-- `.Rprofile`: Runs automatically every time you start `R` (in that project), 
-renv uses this file to configure your `R` session to use the project library
+- `.Rprofile`: Runs automatically every time you start `R` (**in that project 
+folder**), renv uses this file to configure your `R` session to use the project 
+library
 
 .small[Source: https://rstudio.github.io/renv/articles/renv.html#getting-started]
 
@@ -534,10 +535,14 @@ your `R` project
 
 - To share an `R` project, you need to provide access to `renv.lock`, `.Rprofile`, 
 `renv/settings.json` and `renv/activate.R` -- or, from a Git perspective, that's 
-all you need to commit into your `Git` repository
+all you need to commit into your `Git` repository[1]
 
 - Next, using `renv::restore()` a collaborator can exactly reproduce (download 
 and install specific `R` packages) your `R` environment
+
+.smaller[[1] Conveniently, the initial `renv::init()` run also creates a 
+`.gitignore` file in the `renv` folder excluding everything that does not need
+to go into the Git repository]
 
 ---
 
