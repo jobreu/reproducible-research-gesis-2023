@@ -441,9 +441,9 @@ The `data` folder also contains a [mini-codebook](https://jobreu.github.io/repro
 
 class: center, middle
 
-# [Exercise](https://jobreu.github.io/reproducible-research-gesis-2023/exercises/Exercise_Git_Rstudio.html) time `r ji("weight_lifting_woman")``r ji("muscle")``r ji("running_man")``r ji("biking_man")`
+# [Exercise](https://jobreu.github.io/reproducible-research-gesis-2023/exercises/Exercise_Git_RStudio.html) time `r ji("weight_lifting_woman")``r ji("muscle")``r ji("running_man")``r ji("biking_man")`
 
-## [Solutions](https://jobreu.github.io/reproducible-research-gesis-2023/solutions/Exercise_Git_Rstudio.html)
+## [Solutions](https://jobreu.github.io/reproducible-research-gesis-2023/solutions/Exercise_Git_RStudio.html)
 
 ---
 
