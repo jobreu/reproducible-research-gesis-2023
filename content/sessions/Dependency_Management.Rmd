@@ -157,7 +157,7 @@ library(groundhog)
 
 pkgs <- c("tidyverse", "janitor", "sjPlot")
 
-groundhog.library(pkgs, date = "2023-11-71")
+groundhog.library(pkgs, date = "2023-11-17")
 ```
 
 ---
@@ -488,9 +488,11 @@ working well (meaning: in terms of a "reproducible `R` environment")
 
 ## Workflow in `renv`
 
-```{r renvimg, out.width = "100%" ,echo = F}
+```{r renvimg, out.width = "90%" ,echo = F}
 woRkshoptools::include_picture("./bw/fig_renv.png")
 ```
+
+.smaller[Source: https://rstudio.github.io/renv/articles/renv.html]
 
 ---
 
