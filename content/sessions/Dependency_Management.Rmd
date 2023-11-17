@@ -141,6 +141,13 @@ sessionInfo()
 
 ---
 
+## Manual approach to dependency management
+
+You can, e.g., provide the output of `sessionInfo()` in a `.txt` file. We have created a short `R` script which does that. You can find the `session_info_to_txt.R` script in the folder `content/R/` within the workshop materials.
+An exemplary output of that `session_info.txt` can be found in the root directory of the workshop materials.
+
+---
+
 ## `groundhog`  
 
 [`groundhog`](https://groundhogr.com/) is a lightweight package that allows you to increase the reproducibility of your `R` scripts. It does so by installing and loading "packages & their dependencies as available on chosen date on CRAN".
@@ -371,7 +378,7 @@ The package `renv` helps to create reproducible environments for *R projects*
 
 ## Why?
 
-Use `renv` to make your R projects more isolated, portable and reproducible.
+Use `renv` to make your `R` projects more isolated, portable and reproducible.
 
 - Isolated: Installing a new or updated package for one project won’t break 
 your other projects, and vice versa. That’s because `renv` gives each project its 
@@ -392,13 +399,13 @@ ensures those exact versions are the ones that get installed wherever you go.
 
 ## Let's talk about libraries<br> (and packages)
 
-- When talking about a "reproducible R environment", this mostly (excluding R 
+- When talking about a "reproducible R environment", this mostly (excluding `R` 
 itself) refers to all the R packages that are being used
 
-- Most of us have *one* "system library" for R packages, where all installed 
+- Most of us have *one* "system library" for `R` packages, where all installed 
 packages can be found (for example: `D:/Programme/R/library`)
 
-- "The directories in R where the packages are stored are called the libraries" [1] 
+- "The directories in `R` where the packages are stored are called the libraries" [1] 
 
 
 .small[[1] https://hbctraining.github.io/Intro-to-R-flipped/lessons/04_introR_packages.html]
@@ -408,7 +415,7 @@ packages can be found (for example: `D:/Programme/R/library`)
 
 ## Is one R system library a good idea?
 
-However, having *one* central system library for R packages may be a bad idea, 
+However, having *one* central system library for `R` packages may be a bad idea, 
 especially when things break -- and things will break! ("dependency hell")
 
 ```{r xkcd-dep2, out.width = "38%" ,echo = F}
@@ -427,7 +434,7 @@ include_graphics("https://imgs.xkcd.com/comics/dependency.png")
 `renv` sets up a "project library", i.e., each `R` project has its own library
 
 - Project libraries means that each project has its own independent 
-collection of R packages, i.e., multiple projects can have the same R package 
+collection of `R` packages, i.e., multiple projects can have the same `R` package 
 but, e.g., different versions of it
 
 ---
@@ -452,7 +459,7 @@ getOption("repos")
 
 
 
-## renv and repositories
+## `renv` and repositories
 
 - `renv` creates an `R` project-related library and installs packages into that 
 specific library
@@ -465,12 +472,12 @@ can be found on CRAN
 
 
 
-## How does renv work?
+## How does `renv` work?
 
 - It is assumed that your work is based on the model of an "`R` project" 
 (in *RStudio*)
 
-- Similar to Git, you first have to initialize your `R` project, letting `renv` 
+- Similar to `Git`, you first have to initialize your `R` project, letting `renv` 
 know that it should take care of all things that are related to a reproducible 
 `R` environment
 
@@ -517,17 +524,13 @@ library
 ---
 
 
-## renv in RStudio
+## `renv` in *RStudio*
 
 ```{r renv-rstudio, out.width = "75%" ,echo = F}
 woRkshoptools::include_picture("./bw/fig_renv-rstudio.png")
 ```
 
 ---
-
-
-
-
 
 ## `renv::snapshot()` and `renv::restore()`
 
@@ -544,10 +547,9 @@ and install specific `R` packages) your `R` environment
 
 .smaller[[1] Conveniently, the initial `renv::init()` run also creates a 
 `.gitignore` file in the `renv` folder excluding everything that does not need
-to go into the Git repository]
+to go into the `Git` repository]
 
 ---
-
 
 
 ## Installing additional `R` packages
@@ -557,20 +559,11 @@ Use `install.packages()` or `renv::install()`
 ---
 
 
-
-## Updating R packages in your R project
+## Updating `R` packages in your `R` project
 
 Use `renv::update()`...
 
 ---
-
-
-
-
-
-
-
-
 
 class: center, middle
 
